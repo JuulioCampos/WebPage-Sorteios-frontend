@@ -1,7 +1,7 @@
 html {
   background-color: #424242;
 }
-body {
+body, footer {
   background-color: #424242 !important;
   color: white;
 }

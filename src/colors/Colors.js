@@ -6,4 +6,5 @@ export const RED = "#E94560";
 export const GREEN = "#00FFD1";
 export const WHITE = "#FFF";
 export const BLACK = "#000";
-export const DARKTHEME = "#292929"
+export const DARKTHEME = "#292929";
+export const COLORNAV = "#424242";
