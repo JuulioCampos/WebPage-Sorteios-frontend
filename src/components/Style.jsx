@@ -11,7 +11,7 @@ export const SDiv = styled.div`
   }
 `;
 export const SNavbar = styled(Navbar)`
-  padding: 20px;
+  padding: 8px 0;
 `;
 
 export const SFooter = styled.footer`

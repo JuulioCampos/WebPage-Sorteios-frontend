@@ -9,3 +9,46 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+a a {
+  text-decoration: none !important;
+  color: inherit;
+}
+a a:hover {
+  color: inherit;
+}
+body .dropdown-item:focus, .dropdown-item:hover {
+  color: var(--bs-dropdown-link-hover-color);
+  background-color: var(--bs-dropdown-link-hover-bg);
+  cursor: pointer;
+}
+
+.dropdown-item.active, .dropdown-item:active {
+  color: var(--bs-dropdown-link-active-color);
+  text-decoration: none;
+  background-color: var(--bs-dropdown-link-hover-bg) !important;
+}
+
+.dropdown-menu.show, .dropdown:hover .dropdown-menu {
+  -webkit-box-shadow: 0px 10px 25px 9px rgb(0 0 0 / 53%);
+  -moz-box-shadow: 0px 10px 25px 9px rgb(0 0 0 / 53%);
+  box-shadow: 0px 10px 25px 9px rgb(0 0 0 / 53%);
+}
+
+.dropdown:hover .dropdown-menu {
+  display: block !important;
+  margin-top: 0;
+  transition: all .5s ease-in;
+}
+a.btn-sorteio {
+  display: flex;
+  align-items: center;
+  color: #e4e4e4;
+  text-decoration:none;
+  margin-left: 7px;
+}
+a.nav-link {
+  color: #e4e4e4;
+}
+.nav-link:focus, .nav-link:hover, a.btn-sorteio:hover {
+  color: var(--bs-nav-link-hover-color);
+}

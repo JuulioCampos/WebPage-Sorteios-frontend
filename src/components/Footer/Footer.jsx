@@ -12,13 +12,13 @@ export const Footer = (props) => {
             <Container className="bot-footer">
                 <SUl>
                     <ListGroup>
-                        <i classname="">IN</i>
+                        <i className="">IN</i>
                     </ListGroup>
                     <ListGroup>
-                        <i classname="">FC</i>
+                        <i className="">FC</i>
                     </ListGroup>
                     <ListGroup>
-                        <i classname="">WP</i>
+                        <i className="">WP</i>
                     </ListGroup>
                 </SUl>
                 <span className="text-center">Desenvolvido por 'nome empresa'</span>

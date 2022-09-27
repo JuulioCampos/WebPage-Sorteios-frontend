@@ -1,0 +1,28 @@
+import { Row } from "react-bootstrap"
+import Col from 'react-bootstrap/Col';
+import { Cards } from "../../components/Cards/Index"
+import { SH1 } from "./Style"
+
+export const Index = (props) => {
+    const data = props.data
+    console.log(data)
+    return (
+        <>
+            <SH1>
+                Confira os sorteios que estão rolando
+            </SH1>
+            <Row>
+                {
+                    data &&
+                    data.map((data, key) =>(
+                        <Col className={"d-flex justify-content-center p-3"} xl={4} lg ={4} md={6} sm={12}>
+                            <Cards data={data} key={key}> 
+                            </Cards>
+                        </Col>
+                        )
+                    )
+                }
+            </Row>
+        </>
+    )
+}

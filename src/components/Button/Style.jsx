@@ -14,5 +14,8 @@ export const SButton = styled(Button)`
     &:hover {
         border: 1px solid ${PRIMARY} !important;
         background: ${SECOND} !important;
+        -webkit-box-shadow: 0px 8px 25px -7px rgba(0,0,0,1);
+        -moz-box-shadow: 0px 8px 25px -7px rgba(0,0,0,1);
+        box-shadow: 0px 8px 25px -7px rgba(0,0,0,1);
       }
 `;
