@@ -3,13 +3,14 @@ import Card from 'react-bootstrap/Card';
 import { Link } from 'react-router-dom';
 import { Button } from '../Button/Index';
 import { Cota, SCard, Sdiv, Span } from './Style';
+import { BASEURL } from '../../services/Api.js';
 
 export const Cards = (props) => {
     const data = props.data;
-    console.log('card', data.fotos[0].nome)
+    // console.log('card', data.fotos[0].nome)
     return (
         <SCard style={{ width: '18rem' }}>
-            <Card.Img variant="top" src={"http://localhost:8000/"+data.fotos[0].nome} />
+            <Card.Img variant="top" src={BASEURL + data.fotos[0].nome} />
             <Card.Body>
                 <Cota>
                     <p><b>Preço cota: </b></p>
@@ -28,7 +29,7 @@ export const Cards = (props) => {
                 <Span>Concluído</Span>
                 <br />
                 <Link to={'/sorteio/'+data.id}>
-                    <Button label={'Ver sorteio'} />
+                    <Button label={'Ver sorteio'}>Ver sorteio </Button>
                 </Link>
             </Card.Body>
         </SCard>

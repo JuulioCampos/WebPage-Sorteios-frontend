@@ -10,22 +10,15 @@ import { ModalWindow } from '../Modal/Modal.jsx';
 import { Button } from '../Button/Index.jsx';
 import { Link } from 'react-router-dom';
 import { Api } from '../../services/Api.js';
-import Fade from 'react-bootstrap/Fade'
 
 export const Header = (props) => {
   const [modalVisible, setModalVisible] = useState(false);
   const [telefone, setTelefone] = useState('')
   const [listaCotas, setListaCotas] = useState();
   const [isOpen, setIsOpen] = useState();
-  const [dropdownOpen, setDropdownOpen] = useState();
 
   const data = props.data
-  const showDropdown = (e) => {
-    setDropdownOpen(!dropdownOpen);
-  }
-  const hideDropdown = e => {
-    setDropdownOpen(false);
-  }
+
   const getCotas = () => {
     if (telefone.length > 10 && telefone.length < 13 && listaCotas == null) {
 
@@ -62,18 +55,18 @@ export const Header = (props) => {
               
               <Link to={'/sorteios'} className="btn-sorteio ">
                 Sorteios
-                <NavDropdown show={dropdownOpen} d="navbarScrollingDropdown">
+                <NavDropdown d="navbarScrollingDropdown">
                   {
                   data &&
                     data.map((x, y) =>
-                      <Link style={{ color: "#533483", fontWeight: "500" }} data-rr-ui-dropdown-item="" className="dropdown-item" tabindex="0" key={y} to={"/sorteio/" + x.id}>
+                      <Link key={y} style={{ color: "#533483", fontWeight: "500" }} data-rr-ui-dropdown-item="" className="dropdown-item" tabIndex="0"  to={"/sorteio/" + x.id}>
                           {x.titulo}
                       </Link>
                     )
                   }
 
                   <NavDropdown.Divider />
-                  <Link style={{ color: "#89898a", fontWeight: "400" }} data-rr-ui-dropdown-item="" className="dropdown-item" tabindex="0" to="/sorteio/finalizados">
+                  <Link style={{ color: "#89898a", fontWeight: "400" }} data-rr-ui-dropdown-item="" className="dropdown-item" tabIndex="0" to="/sorteio/finalizados">
                       Finalizados
                   </Link>
               </NavDropdown>
@@ -89,7 +82,7 @@ export const Header = (props) => {
                 onChange={(e) => setTelefone(e.target.value)}
                 value={telefone}
               />
-              <Button label="Buscar Números" onClick={getCotas}></Button>
+              <Button label="Buscar Números" onClick={getCotas}>Buscar Números</Button>
             </Form>
           </Navbar.Collapse>
         </Container>

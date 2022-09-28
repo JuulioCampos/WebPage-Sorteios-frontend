@@ -1,3 +1,4 @@
+import React from "react";
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import { Route, Routes} from "react-router-dom"
 import Container from "react-bootstrap/esm/Container.js";
@@ -7,26 +8,11 @@ import { Index as Home } from "./pages/Home/Index.jsx";
 import { Index as Sorteio } from "./pages/Sorteio/Index.jsx";
 import { Index as Sorteios } from "./pages/Sorteios/Index.jsx";
 import { Index as Contato } from "./pages/Contato/Index.jsx";
-import { useEffect, useState } from "react";
-import { Api } from "./services/Api";
+import { ListaCotasContext } from "./providers/ListaSorteios";
 
 
 export const App = () => {
-  
-const [listaSorteios, setListaSorteios] = useState();
-
-useEffect(() => {
-  if (!listaSorteios) {
-    const url = "/api/busca-sorteios";
-    Api
-      .get(url, {
-      })
-      .then((response) => setListaSorteios(response.data))
-      .catch((err) => {
-        console.error("ops! ocorreu um erro" + err);
-      });
-  }
-}, [listaSorteios])
+const {listaSorteios} = React.useContext(ListaCotasContext)
 
 return (
     <>

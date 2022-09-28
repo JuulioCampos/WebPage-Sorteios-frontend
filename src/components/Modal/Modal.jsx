@@ -17,7 +17,7 @@ export const ModalWindow = (props) => {
                             <SDiv>
                                 <p><b>Nome comprador:</b> {x.nome}</p>
                                 <p><b>Telefone:</b> {x.telefone}</p>
-                                <p><b>Cotas adquiridas:</b> {x.cotas.join(' - ') }</p>
+                                <p><b>Cotas adquiridas:</b> {x.cotas.join(' - ')}</p>
                                 <p><b>Forma de pagamento:</b> {x.forma_pagamento}</p>
                             </SDiv>
                         </SDivSeparator>)
@@ -25,6 +25,7 @@ export const ModalWindow = (props) => {
             </SModalBody>
             <Modal.Footer>
                 <Button label="Fechar" onClick={props.btnClose}>
+                    Fechar
                 </Button>
             </Modal.Footer>
         </Modal>

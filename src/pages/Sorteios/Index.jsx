@@ -5,7 +5,6 @@ import { SH1 } from "./Style"
 
 export const Index = (props) => {
     const data = props.data
-    console.log(data)
     return (
         <>
             <SH1>
