@@ -1,10 +1,10 @@
 import { useParams } from "react-router-dom"
 import { SorteioUnico } from "./Unico/Index"
 import { SorteioFinalizado } from "./Finalizados/Index"
-export const Sorteio = () => {
+export const Sorteio = (props) => {
     const {sorteio} = useParams()
-    
-    const Pagina = sorteio === 'finalizados' ? <SorteioFinalizado /> : <SorteioUnico id={sorteio} />
+    const data = props.data
+    const Pagina = sorteio === 'finalizados' ? <SorteioFinalizado /> : <SorteioUnico id={sorteio} data={data}/>
 
     return (
         <>

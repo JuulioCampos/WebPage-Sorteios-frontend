@@ -7,12 +7,12 @@ import { BrowserRouter } from "react-router-dom"
 import { ListaCotasProvider } from './providers/ListaSorteios';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode style={{ background: DARKTHEME }}>
-    <ListaCotasProvider>
+  <ListaCotasProvider>
+    <React.StrictMode style={{ background: DARKTHEME }}>
       <BrowserRouter>
         <App />
       </BrowserRouter>
-    </ListaCotasProvider>
-  </React.StrictMode>
+    </React.StrictMode>
+  </ListaCotasProvider>
 );
 

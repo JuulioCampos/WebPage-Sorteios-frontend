@@ -3,13 +3,13 @@ import { SFooter, SUl } from "../Style"
 
 export const Footer = (props) => {
     return (
-        <SFooter>
+        <SFooter className={props.positionFixed}>
             <Container className="top-footer">
                 <h4>
                     Nos siga nas redes sociais 
                 </h4>
             </Container>
-            <Container className="bot-footer">
+            <Container className={"bot-footer " + props.positionFixed}>
                 <SUl>
                     <ListGroup>
                         <i className="">IN</i>

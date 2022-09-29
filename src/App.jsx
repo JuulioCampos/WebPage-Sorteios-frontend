@@ -15,20 +15,28 @@ export const App = () => {
   const { listaSorteios } = React.useContext(ListaCotasContext)
   const { waitLoad, setWaitLoad } = React.useContext(ListaCotasContext)
   if (waitLoad) {
-    return (<div className="Loading-page"><img  src="https://acegif.com/wp-content/uploads/loading-4.gif" alt="carregando..." /></div>)
+    return (<div className="Loading-page"><img src="https://acegif.com/wp-content/uploads/loading-4.gif" alt="carregando..." /></div>)
+  }
+  if (listaSorteios) {
+    return (
+      <>
+        <Header data={listaSorteios} />
+        <Container>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/sorteio/:sorteio" element={<Sorteio data={listaSorteios} />} />
+            <Route path="/sorteios/" element={<TodosSorteios data={listaSorteios} />} />
+            <Route path="/contato" element={<Contato />} />
+          </Routes>
+        </Container>
+        <Footer></Footer>
+      </>
+    )
   }
   return (
     <>
       <Header data={listaSorteios} />
-      <Container>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/sorteio/:sorteio" element={<Sorteio />} />
-          <Route path="/sorteios/" element={<TodosSorteios data={listaSorteios} />} />
-          <Route path="/contato" element={<Contato />} />
-        </Routes>
-      </Container>
-      <Footer></Footer>
+      <div className="Loading-page"><img src="https://acegif.com/wp-content/uploads/loading-4.gif" alt="carregando..." /></div>
     </>
   )
 }
