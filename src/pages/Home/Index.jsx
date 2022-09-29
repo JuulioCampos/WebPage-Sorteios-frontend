@@ -3,7 +3,7 @@ import { WHITE } from "../../colors/Colors"
 import { Button } from "../../components/Button/Index"
 import { SDiv } from "../../components/Style"
 
-export const Index = () => {
+export const Home = () => {
     return (
         <SDiv>
             <h1 style={{color:WHITE}}>

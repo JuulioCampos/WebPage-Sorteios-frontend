@@ -52,3 +52,21 @@ a.nav-link {
 .nav-link:focus, .nav-link:hover, a.btn-sorteio:hover {
   color: var(--bs-nav-link-hover-color);
 }
+.Loading-page {
+  position: absolute;
+  z-index: 99999;
+  width: 100%;
+  background: #424242;
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  transition: all .5 ease-in-out !important;
+}
+.Loading-page img {
+  width: 300px;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  top: 30%;
+}

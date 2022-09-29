@@ -1,5 +1,5 @@
 
-export const Index = () => {
+export const Contato = () => {
     return (
         <div>
             CONTATO PASTA

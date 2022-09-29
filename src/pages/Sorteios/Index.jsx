@@ -3,7 +3,7 @@ import Col from 'react-bootstrap/Col';
 import { Cards } from "../../components/Cards/Index"
 import { SH1 } from "./Style"
 
-export const Index = (props) => {
+export const TodosSorteios = (props) => {
     const data = props.data
     return (
         <>

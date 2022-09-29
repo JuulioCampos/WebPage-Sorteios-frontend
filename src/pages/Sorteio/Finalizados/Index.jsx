@@ -1,4 +1,4 @@
-export const Index = (props) => {
+export const SorteioFinalizado = (props) => {
     return (
         <h1>
             Sorteios Finalizados

@@ -1,10 +1,10 @@
 import { useParams } from "react-router-dom"
-import { Index as Unico } from "./Unico/Index"
-import { Index as Finalizados } from "./Finalizados/Index"
-export const Index = () => {
+import { SorteioUnico } from "./Unico/Index"
+import { SorteioFinalizado } from "./Finalizados/Index"
+export const Sorteio = () => {
     const {sorteio} = useParams()
     
-    const Pagina = sorteio === 'finalizados' ? <Finalizados /> : <Unico id={sorteio} />
+    const Pagina = sorteio === 'finalizados' ? <SorteioFinalizado /> : <SorteioUnico id={sorteio} />
 
     return (
         <>
