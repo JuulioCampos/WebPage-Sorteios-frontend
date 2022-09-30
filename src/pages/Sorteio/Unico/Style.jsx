@@ -22,19 +22,30 @@ export const SDiv = styled.div`
     }
 `
 
-export const SSection = styled.section `
+export const SSection = styled.section`
     & .carousel {
-        & img {border-radius: 10px; border-top-right-radius:0; border-bottom-right-radius: 0};
+        & img {
+            border-radius: 10px; 
+            border-top-right-radius:0; 
+            border-bottom-right-radius: 0;
+            @media (max-width: 991px) {
+                border-radius: 0; 
+                border-top-right-radius:10px; 
+                border-top-left-radius:10px;
+        }
+        };
     }
 `
-export const DivSeparator = styled.div `
+export const DivSeparator = styled.div`
     background-color: red;
     border-radius: 10px;
+    border:1px solid white;
 `
-export const DivIntroducao = styled.div `
+export const DivIntroducao = styled.div`
+    padding: 0 10px;
 `
 
-export const SorteioSection = styled.section `
+export const SorteioSection = styled.section`
     background-color:  ${SECOND}50;
     padding: 15px;
     margin-top: 15px;
@@ -48,5 +59,86 @@ export const SCol = styled(Col)`
     background-color: ${DARK};
     border-radius: 10px; 
     border-top-left-radius:0; 
-    border-bottom-left-radius: 0
+    border-bottom-left-radius: 0;
+
+    @media (max-width: 991px) {
+        border-radius: 0px; 
+        border-bottom-right-radius:10px; 
+        border-bottom-left-radius:10px;
+    }
+`
+
+export const Anuncio = styled.p`
+    color: ${WHITE};
+    overflow-y: scroll;
+    max-height: 33vw;
+    padding: 0px 15px 0 0px;
+    margin-top: 20px;
+    @media (max-width: 768px) {
+        max-height: 50vw; 
+    }
+    & h4 {
+        font-size: 1rem !important;
+    }
+    & ul li {
+        line-height: 15px;
+        margin-top: 10px;
+        list-style: decimal-leading-zero;
+    }
+    ::-webkit-scrollbar {
+        width: 1em;
+        border-radius: 10px;
+        padding: 5px 0
+    }
+    
+    ::-webkit-scrollbar-track {
+        box-shadow: inset 0 0 6px rgba(30, 17, 109, 0.3);
+    }
+    
+    ::-webkit-scrollbar-thumb {
+        background-color: ${PRIMARY};
+        outline: 1px solid #3746c1;
+        border-radius: 10px;
+    }
+    ::-webkit-scrollbar {
+    width: 5px;
+    height: 8px;
+    background-color: ${SECOND}; /* or add it to the track */
+    border-radius: 10px;
+    }
+`
+export const ReadBefore = styled.div`
+    border-top: 1px solid  ${PRIMARY};
+    padding-top: 20px;
+    max-height: 380px;
+
+    @media (max-width: 1200px) {
+        max-height: 270px;
+    }
+    @media (max-width: 991px) {
+        max-height: 103px;
+    }
+    @media (max-width: 768px) {
+        max-height: 203px;
+    }
+`
+export const PremioCota = styled.div`
+    display: flex;
+    margin-top: 16px;
+    justify-content: center;
+
+    & p {
+    background-color: white;
+    width: max-content;
+    color: black;
+    padding: 10px;
+    border-radius: 10px;
+    margin: 0 !important
+    }
+
+`
+
+export const Pagamento = styled.div`
+
+color: white
 `
