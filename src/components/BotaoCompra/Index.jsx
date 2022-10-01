@@ -41,7 +41,7 @@ export const BotaoCompra = () => {
                         </SButton>
                     </InputGroup>
                 </div>
-            </SCol>
+            </SCol>-.
         </SRow>
     )
 }
