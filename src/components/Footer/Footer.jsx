@@ -9,19 +9,19 @@ export const Footer = (props) => {
                     Nos siga nas redes sociais 
                 </h4>
             </Container>
-            <Container className={"bot-footer " + props.positionFixed}>
-                <SUl>
+            <Container className={"bot-footer " + (props.positionFixed ?? '')}>
+                <SUl className="mt-2">
                     <ListGroup>
-                        <i className="">IN</i>
+                        <i className=" px-1 fa-brands fa-instagram"></i>
                     </ListGroup>
                     <ListGroup>
-                        <i className="">FC</i>
+                        <i className="px-1  fa-brands fa-facebook-f"></i>
                     </ListGroup>
                     <ListGroup>
-                        <i className="">WP</i>
+                        <i className="px-1 fa-brands fa-whatsapp"></i>
                     </ListGroup>
                 </SUl>
-                <span className="text-center">Desenvolvido por 'nome empresa'</span>
+                <span style={{marginBottom: 0}}className="text-center">Desenvolvido por KobRifas @ 2021</span>
             </Container>
         </SFooter>
     )

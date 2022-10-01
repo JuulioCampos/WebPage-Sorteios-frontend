@@ -5,6 +5,18 @@ import { Button } from '../Button/Index.jsx';
 import { GREEN, SECOND, WHITE } from "../../colors/Colors.js";
 
 export const SCol = styled(Col)`
+    & .bt-adding button {
+        font-size: 30px !important;
+        line-height: 20px;
+        width: 70px !important;
+    }
+    & label {
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        color: ${WHITE};
+        
+    }
     .input-group {justify-content: center;}
     .input-group .btn:focus {
         z-index: 5;
@@ -16,7 +28,7 @@ export const SCol = styled(Col)`
         width: 125px !important;
     }
     button.addB {
-        font-size: 18px !important;
+        font-size: 18px ;
     }
     button.adding {
         padding: 10px;
@@ -37,6 +49,9 @@ export const SCol = styled(Col)`
 `
 export const SRow = styled(Row)`
     
+    & .borda-topo {
+        border-top: 1px solid ${WHITE}fff24;
+    }
 
 `
 export const SButton = styled(Button)`

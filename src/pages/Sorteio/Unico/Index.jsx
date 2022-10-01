@@ -23,7 +23,7 @@ export const SorteioUnico = (props) => {
                                     <p>
                                         <div>
                                             <Icon width={"5"} color={"black"} iconName={"fa-solid fa-star"} />
-                                            &nbsp; PREÇO DA COTA: <b>R$10,00</b>&nbsp;
+                                            &nbsp; PREÇO DA COTA: <b>R${sorteio_data.valor_cota.replace('.', ',') ?? '0,60'}</b>&nbsp;
                                             <Icon width={"5"} color={"black"} iconName={"fa-solid fa-star"} />
                                         </div>
                                     </p>
