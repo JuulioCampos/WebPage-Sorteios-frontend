@@ -23,8 +23,11 @@ export const SFooter = styled.footer`
     padding: 10px;
     margin-top: 20px;
     padding-bottom: 0;
-    border-bottom: 1px solid ${WHITE}3;
     width: 100%
+  }
+  .borda-baixo {
+    padding-bottom: 10px;
+    border-bottom: 1px solid ${WHITE}3;
   }
   h4 {
     font-size: 1.2rem;
@@ -35,7 +38,7 @@ export const SFooter = styled.footer`
     display: flex;
     justify-content: center;
     font-size: .8rem;
-    padding-top: -15px;
+    margin-top: -15px;
     color: ${WHITE}3;
     margin-bottom: 5px;
   }

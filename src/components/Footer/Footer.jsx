@@ -10,7 +10,7 @@ export const Footer = (props) => {
                 </h4>
             </Container>
             <Container className={"bot-footer " + (props.positionFixed ?? '')}>
-                <SUl className="mt-2">
+                <SUl className="borda-baixo mt-2">
                     <ListGroup>
                         <i className=" px-1 fa-brands fa-instagram"></i>
                     </ListGroup>
