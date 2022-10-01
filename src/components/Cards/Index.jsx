@@ -11,7 +11,7 @@ export const Cards = (props) => {
     // console.log('card', data.fotos[0].nome)
     return (
         <SCard style={{ width: '18rem' }}>
-            <Card.Img variant="top" src={(BASEURL + data.fotos[0].nome)} />
+            <Card.Img variant="top" src={(BASEURL + data.fotos[0].url_foto)} />
             <Card.Body>
                 <Cota>
                     <p><b>Preço cota: </b></p>

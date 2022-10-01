@@ -10,7 +10,7 @@ export const CarouselFade = (props) => {
                     <Carousel.Item key={y}>
                         <img
                             className="d-block w-100"
-                            src={BASEURL + x.nome}
+                            src={BASEURL + x.url_foto}
                             alt={"Fotos do prêmio " + data.titulo}
                         />
                     </Carousel.Item>
