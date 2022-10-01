@@ -79,3 +79,13 @@ body .position-fixed {
 .carousel-control-next, .carousel-control-prev {
   color: #0F3460;
 }
+* .form-control:focus {
+  color: #212529;
+  background-color: #fff;
+  border-color: #0a244a73;
+  outline: 0;
+  box-shadow: 0 0 0 0px rgb(20 115 255 / 25%) !important;
+}
+span#basic-addon2 {
+  width: 100px;
+}

@@ -88,22 +88,27 @@ export const Anuncio = styled.p`
     ::-webkit-scrollbar {
         width: 1em;
         border-radius: 10px;
-        padding: 5px 0
+        padding: 5px 0;
+        opacity: 0.3;
     }
     
     ::-webkit-scrollbar-track {
+        opacity: 0.3;
         box-shadow: inset 0 0 6px rgba(30, 17, 109, 0.3);
     }
     
     ::-webkit-scrollbar-thumb {
         background-color: ${PRIMARY};
         outline: 1px solid #3746c1;
+        opacity: 0.3;
+        opacity: 0.3;
         border-radius: 10px;
     }
     ::-webkit-scrollbar {
     width: 5px;
     height: 8px;
     background-color: ${SECOND}; /* or add it to the track */
+    opacity: 0.3;
     border-radius: 10px;
     }
 `
