@@ -7,6 +7,14 @@ import { Button } from "../Button/Index";
 export const BotaoCompra = (props) => {
     const [qtdCotas, setQtdCotas] = useState(0)
 
+    if (qtdCotas > 500) {
+        setQtdCotas(500)
+        alert('Você adicionou a quantidade máxima de cotas!')
+    }
+    if (qtdCotas < 0) {
+        setQtdCotas(0)
+        alert('Quantidade de cotas já está zerado!')
+    }
     const numClickHandler = (Event, valor, tipo) => { 
         if (valor > 0 && tipo == '+') {
             setQtdCotas(qtdCotas + valor)
@@ -26,30 +34,6 @@ export const BotaoCompra = (props) => {
 
     return (
         <SRow>
-            <SCol col={12} xs={12} sm={12} lg={4}>
-                <InputGroup className="mb-3">
-                    <InputGroup.Text id="basic-addon2"><b>01 &nbsp;</b>COTA</InputGroup.Text>
-                    <SButton onClick={() => numClickHandler(EventTarget, 1, '+')} id="button-addon2" className={"addB"}>
-                        Escolher
-                    </SButton>
-                </InputGroup>
-            </SCol>
-            <SCol col={12} xs={12} sm={12} lg={4}>
-                <InputGroup className="mb-3">
-                    <InputGroup.Text id="basic-addon2"><b>05 &nbsp;</b>COTAS</InputGroup.Text>
-                    <SButton onClick={() => numClickHandler(EventTarget, 5, '+')} id="button-addon2" className={"addB"}>
-                        Escolher
-                    </SButton>
-                </InputGroup>
-            </SCol>
-            <SCol col={12} xs={12} sm={12} lg={4}>
-                <InputGroup className="mb-3">
-                    <InputGroup.Text id="basic-addon2"><b>10 &nbsp;</b>COTAS</InputGroup.Text>
-                    <SButton onClick={() => numClickHandler(EventTarget, 10, '+')} id="button-addon2" className={"addB"}>
-                        Escolher
-                    </SButton>
-                </InputGroup>
-            </SCol>
             <SCol sm={12} className={"d-flex justify-content-center borda-topo"}>
                 <div style={{display: 'block'}}>
                     <label className="text-center my-2" htmlFor="cotas">Total de cotas</label>
