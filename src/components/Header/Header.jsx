@@ -82,7 +82,9 @@ export const Header = (props) => {
                 onChange={(e) => setTelefone(e.target.value)}
                 value={telefone}
               />
-              <Button label="Buscar Números" onClick={getCotas}>Buscar Números</Button>
+              <div className="search-cotas">
+                <Button label="Buscar Números" onClick={getCotas}>Buscar Números</Button>
+              </div>
             </Form>
           </Navbar.Collapse>
         </Container>

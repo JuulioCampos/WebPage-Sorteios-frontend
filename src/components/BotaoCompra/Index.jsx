@@ -9,7 +9,7 @@ export const BotaoCompra = (props) => {
 
     if (qtdCotas > 500) {
         setQtdCotas(500)
-        alert('Você adicionou a quantidade máxima de cotas!')
+        alert('Limite máximo de reserva é 500!')
     }
     if (qtdCotas < 0) {
         setQtdCotas(0)
@@ -34,7 +34,7 @@ export const BotaoCompra = (props) => {
 
     return (
         <SRow>
-            <SCol sm={12} className={"d-flex justify-content-center borda-topo"}>
+            <SCol sm={12} className={"d-flex justify-content-center "}>
                 <div style={{display: 'block'}}>
                     <label className="text-center my-2" htmlFor="cotas">Total de cotas</label>
                     <InputGroup className="mb-3 bt-adding">
