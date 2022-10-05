@@ -1,39 +1,60 @@
-import { useState } from "react"
-import { Col, Form, Row } from "react-bootstrap"
+import React, { useState } from "react"
+import { Col, Row } from "react-bootstrap"
 import { BotaoCompra } from "../../../components/BotaoCompra/Index"
+import { BuscaUsuario } from "../../../components/BuscaUsuario/Index"
 import { Button } from "../../../components/Button/Index"
+import { FormUsuario } from "../../../components/Cadastrar/Usuario/Index"
 import { CarouselFade } from "../../../components/Carousel/Index"
 import { Icon } from "../../../components/Icons/Index"
+import { ModalComponent } from "../../../components/ModalComponent/Index"
+import { countCotasContext } from "../../../providers/CountCotas"
+import { PageAtualCompraContext } from "../../../providers/PageAtualCompra"
 import { Api } from "../../../services/Api"
-import { Anuncio, DivIntroducao, DivSeparator, Pagamento, PremioCota, ReadBefore, SCol, SDiv, SorteioSection, SSection } from "./Style"
+import { maskTelefone, unmaskTelefone } from "../../../services/Validations"
+import { Anuncio, DivComprar, DivIntroducao, PremioCota, ReadBefore, SCol, SDiv, SorteioSection, SSection } from "./Style"
+
+
 export const SorteioUnico = (props) => {
+    const { contaCotas } = React.useContext(countCotasContext)
+    // eslint-disable-next-line
     const sorteio_data = props.data.find(x => x.id == props.id)
-    // const [telefone, setTelefone] = useState(null)
-    // const [listaCotas, setListaCotas] = useState(null)
-    // const [modalVisible, setModalVisible] = useState(false);
-    // const [isOpen, setIsOpen] = useState();
+    // const registraCompra = 1;
 
-    // const getCotas = () => {
-    //     if (telefone.length > 10 && telefone.length < 13 && listaCotas == null) {
+    const [showModalCompra, setShowModalCompra] = useState(false);
+    const [telefone, setTelefone] = useState('')
+    const [userData, setUserData] = useState(false)
+    const { pageAtualCompra, setPageAtualCompra } = React.useContext(PageAtualCompraContext)
 
-    //         const url = "/api/busca-cotas/" + telefone;
-    //         Api
-    //             .get(url, {
-    //                 // put the rest of your config here
-    //             })
-    //             .then((response) => setListaCotas(response.data))
-    //             .catch((err) => {
-    //                 console.error("ops! ocorreu um erro" + err);
-    //             });
-    //     }
-    //     setModalVisible(true)
-    //     setIsOpen(true)
-    // }
-    // const btnClose = () => {
-    //     setModalVisible(false)
-    //     setIsOpen(false)
-    //     setListaCotas(null)
-    // }
+    const handleModal = () => setShowModalCompra(contaCotas > 0 ? !showModalCompra : false);
+    
+    const getUsuario = () => {
+        if (unmaskTelefone(telefone).length > 10) {
+            const url = "/api/busca-usuario/"+ unmaskTelefone(telefone)
+            try {
+                Api
+                .post(url, {
+                    // put the rest of your config here
+                })
+                .then((response) => setUserData(response.data))
+                .catch((err) => {
+                    setUserData({erro: 404, messagem: 'not exists'})
+                });
+            } catch (error) {
+                setUserData(false)
+            }
+            
+        } else {
+            setUserData(false)
+        }
+
+
+
+    }
+    if (userData.erro) {
+        setPageAtualCompra(1)
+        setUserData(false)
+    }
+
     return (
         <>
             <SorteioSection>
@@ -42,24 +63,6 @@ export const SorteioUnico = (props) => {
                         <h1 className=""><Icon width={"5"} color={"white"} iconName={"fa-solid fa-star"} /> {sorteio_data.titulo}</h1>
                         <small className="text-center text-lg-left">{'Sorteio principal '}</small>
                     </Col>
-                    {/* <Col sm={12} md={12} lg={6} className="">
-                        <div className="d-lg-grid justify-content-end">
-                            <p className="text-white pb-0 mb-0">Consulte as cotas aqui &nbsp;</p>
-                            <Form className="d-flex">
-                                <Form.Control
-                                    type="search"
-                                    placeholder="Seu telefone"
-                                    className="me-2"
-                                    aria-label="Search"
-                                    onChange={(e) => setTelefone(e.target.value)}
-                                    value={telefone}
-                                />
-                                <div className="search-cotas c-sorteio">
-                                    <Button aria-type="search" label="Buscar Números" onClick={getCotas}><i class="fa-solid fa-magnifying-glass"></i></Button>
-                                </div>
-                            </Form>
-                        </div>
-                    </Col> */}
                 </SDiv>
                 <SSection style={{ padding: '8px' }} >
                     <Row>
@@ -121,12 +124,33 @@ export const SorteioUnico = (props) => {
             <SorteioSection>
                 <Row className="d-flex justify-content-center">
                     <Col xs={12} lg={10} xl={8}>
-                        <BotaoCompra ></BotaoCompra>
+                        <Row>
+                            <BotaoCompra ></BotaoCompra>
+                            <SCol>
+                                <DivComprar>
+                                    <Button onClick={handleModal || false} className="neon-effect">Comprar {contaCotas} Cotas</Button>
+                                </DivComprar>
+                            </SCol>
+                        </Row>
                     </Col>
                 </Row>
             </SorteioSection>
 
+            <ModalComponent
+                estado={showModalCompra}
+                modalClose={handleModal || false}
+                modalTitle={'Comprar ' + contaCotas + ' Cotas'}
+                modalFooter={''}
+            >
+                {
+                    // eslint-disable-next-line
+                    pageAtualCompra == 0 && <BuscaUsuario onClick={getUsuario} onChange={(e) => {setTelefone(e.target.value)}} value={maskTelefone(telefone)}> Buscar Cadasro </BuscaUsuario>
+                }
+                {
+                    // eslint-disable-next-line
+                    pageAtualCompra == 1 && <FormUsuario telefone={telefone}> </FormUsuario>
+                }
+            </ModalComponent>
         </>
-
     )
 }

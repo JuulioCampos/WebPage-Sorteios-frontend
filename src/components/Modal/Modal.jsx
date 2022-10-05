@@ -5,7 +5,7 @@ import { SDiv, SDivSeparator, SModalBody } from './Style';
 export const ModalWindow = (props) => {
     const data = (props.listaCotas)
     return (
-        <Modal show={props.visible} onHide={props.btnClose}>
+        <Modal show={props.visible} onHide={props.btnClose}  animation={true}>
             <Modal.Header closeButton>
                 <Modal.Title>Suas cotas</Modal.Title>
             </Modal.Header>

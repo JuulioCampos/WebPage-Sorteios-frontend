@@ -10,6 +10,7 @@ import { ModalWindow } from '../Modal/Modal.jsx';
 import { Button } from '../Button/Index.jsx';
 import { Link } from 'react-router-dom';
 import { Api } from '../../services/Api.js';
+import { maskTelefone, unmaskTelefone } from '../../services/Validations.js';
 
 export const Header = (props) => {
   const [modalVisible, setModalVisible] = useState(false);
@@ -20,9 +21,9 @@ export const Header = (props) => {
   const data = props.data
 
   const getCotas = () => {
-    if (telefone.length > 10 && telefone.length < 13 && listaCotas == null) {
+    if (unmaskTelefone(telefone).length > 10 && unmaskTelefone(telefone).length < 13 && listaCotas == null) {
 
-      const url = "/api/busca-cotas/" + telefone;
+      const url = "/api/busca-cotas/" + unmaskTelefone(telefone);
       Api
         .get(url, {
           // put the rest of your config here
@@ -80,7 +81,7 @@ export const Header = (props) => {
                 className="me-2"
                 aria-label="Search"
                 onChange={(e) => setTelefone(e.target.value)}
-                value={telefone}
+                value={maskTelefone(telefone)}
               />
               <div className="search-cotas">
                 <Button label="Buscar Números" onClick={getCotas}>Buscar Números</Button>

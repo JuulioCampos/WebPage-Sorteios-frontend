@@ -5,12 +5,21 @@ import { App } from './App';
 import { DARKTHEME } from './colors/Colors';
 import { BrowserRouter } from "react-router-dom"
 import { ListaCotasProvider } from './providers/ListaSorteios';
+import { CountCotasProvider } from "./providers/CountCotas";
+import { DadosUsuarioProvider } from "./providers/DadosUsuario";
+import { PageAtualCompraProvider } from "./providers/PageAtualCompra";
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <ListaCotasProvider>
     <React.StrictMode style={{ background: DARKTHEME }}>
       <BrowserRouter>
-        <App />
+        <CountCotasProvider>
+          <DadosUsuarioProvider>
+            <PageAtualCompraProvider>
+              <App />
+            </PageAtualCompraProvider>
+          </DadosUsuarioProvider>
+        </CountCotasProvider>
       </BrowserRouter>
     </React.StrictMode>
   </ListaCotasProvider>

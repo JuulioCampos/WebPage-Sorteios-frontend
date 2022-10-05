@@ -1,7 +1,6 @@
 import { Col } from "react-bootstrap";
-import styled, { isStyledComponent } from "styled-components";
+import styled from "styled-components";
 import { DARK, PRIMARY, SECOND, WHITE } from "../../../colors/Colors";
-import { CarouselFade } from "../../../components/Carousel/Index";
 
 export const SDiv = styled.div`
     & h1{color: ${WHITE}; text-shadow: 3px 3px 11px #3127698f;}
@@ -146,4 +145,52 @@ export const PremioCota = styled.div`
 export const Pagamento = styled.div`
 
 color: white
+`
+
+
+export const DivComprar = styled.div`
+    display: flex;
+    justify-content: center;
+    & button {
+        animation: animate 1s linear infinite;
+        width: max-content !important;
+        font-size: 1.4rem;
+        padding: 10px;
+    }
+    @keyframes animate{
+        0%{
+            opacity: 0.55;
+        }
+        10%{
+            opacity: 0.85;
+        }
+        20%{
+            opacity: 0.9;
+        }
+        30%{
+            opacity: 0.95;
+        }
+        40%{
+            opacity: 0.97;
+        }
+
+        50%{
+            opacity: 1;
+        }
+        60% {
+            opacity: .97;
+        }
+        70%{
+            opacity: 0.95;
+        }
+        80%{
+            opacity: 0.9;
+        }
+        90%{
+            opacity: 0.85;
+        }
+        100%{
+            opacity: 0.55;
+    }
+ }
 `
