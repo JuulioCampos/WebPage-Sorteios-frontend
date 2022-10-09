@@ -5,9 +5,11 @@ import { BuscaUsuario } from "../../../components/BuscaUsuario/Index"
 import { Button } from "../../../components/Button/Index"
 import { FormUsuario } from "../../../components/Cadastrar/Usuario/Index"
 import { CarouselFade } from "../../../components/Carousel/Index"
+import { ComprarPage } from "../../../components/Comprar/Index"
 import { Icon } from "../../../components/Icons/Index"
 import { ModalComponent } from "../../../components/ModalComponent/Index"
 import { countCotasContext } from "../../../providers/CountCotas"
+import { DadosUsuarioContext } from "../../../providers/DadosUsuario"
 import { PageAtualCompraContext } from "../../../providers/PageAtualCompra"
 import { Api } from "../../../services/Api"
 import { maskTelefone, unmaskTelefone } from "../../../services/Validations"
@@ -15,6 +17,9 @@ import { Anuncio, DivComprar, DivIntroducao, PremioCota, ReadBefore, SCol, SDiv,
 
 
 export const SorteioUnico = (props) => {
+    const { pageAtualCompra, setPageAtualCompra } = React.useContext(PageAtualCompraContext)
+    const { setDadosUsuario } = React.useContext(DadosUsuarioContext)
+
     const { contaCotas } = React.useContext(countCotasContext)
     // eslint-disable-next-line
     const sorteio_data = props.data.find(x => x.id == props.id)
@@ -23,32 +28,39 @@ export const SorteioUnico = (props) => {
     const [showModalCompra, setShowModalCompra] = useState(false);
     const [telefone, setTelefone] = useState('')
     const [userData, setUserData] = useState(false)
-    const { pageAtualCompra, setPageAtualCompra } = React.useContext(PageAtualCompraContext)
-
     const handleModal = () => setShowModalCompra(contaCotas > 0 ? !showModalCompra : false);
-    
+
     const getUsuario = () => {
         if (unmaskTelefone(telefone).length > 10) {
-            const url = "/api/busca-usuario/"+ unmaskTelefone(telefone)
+            const url = "/api/busca-usuario/" + unmaskTelefone(telefone)
             try {
                 Api
-                .post(url, {
-                    // put the rest of your config here
-                })
-                .then((response) => setUserData(response.data))
-                .catch((err) => {
-                    setUserData({erro: 404, messagem: 'not exists'})
-                });
+                    .post(url, {
+                        // put the rest of your config here
+                    })
+                    .then((response) => {
+                        let data = {}
+                        data.user = response.data[0]
+                        data.quantidade = contaCotas
+                        data.sorteio = {
+                            'titulo': sorteio_data.titulo,
+                            'id': props.id,
+                            'valor_cota': sorteio_data.valor_cota.replace('.', ',')
+                        }
+                        setUserData(data)
+                        setPageAtualCompra(3)
+                        setDadosUsuario(data)
+                    })
+                    .catch((err) => {
+                        setUserData({ erro: 404, messagem: 'not exists' })
+                    });
             } catch (error) {
                 setUserData(false)
             }
-            
+
         } else {
             setUserData(false)
         }
-
-
-
     }
     if (userData.erro) {
         setPageAtualCompra(1)
@@ -144,11 +156,15 @@ export const SorteioUnico = (props) => {
             >
                 {
                     // eslint-disable-next-line
-                    pageAtualCompra == 0 && <BuscaUsuario onClick={getUsuario} onChange={(e) => {setTelefone(e.target.value)}} value={maskTelefone(telefone)}> Buscar Cadasro </BuscaUsuario>
+                    pageAtualCompra == 0 && <BuscaUsuario onClick={getUsuario} onChange={(e) => { setTelefone(e.target.value) }} value={maskTelefone(telefone)}> Buscar Cadasro </BuscaUsuario>
                 }
                 {
                     // eslint-disable-next-line
                     pageAtualCompra == 1 && <FormUsuario telefone={telefone}> </FormUsuario>
+                }
+                {
+                    // eslint-disable-next-line
+                    pageAtualCompra == 3 && <ComprarPage></ComprarPage>
                 }
             </ModalComponent>
         </>

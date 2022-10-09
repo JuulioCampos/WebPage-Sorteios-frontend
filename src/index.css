@@ -1,9 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600&display=swap');
 html {
   background-color: #424242;
 }
 body, footer {
   background-color: #424242 !important;
   color: white;
+}
+body, *, html, :root, body * {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 300;
 }
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
@@ -118,4 +123,10 @@ input.me-2.form-control {
 }
 .neon-effect {
   border-radius: 10px !important;
+}
+.modal-content {
+  width: max-content !important;
+}
+.div-comprar button{
+  width: 150px !important;
 }

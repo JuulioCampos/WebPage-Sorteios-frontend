@@ -2,7 +2,7 @@ import { Col } from "react-bootstrap";
 import styled from "styled-components";
 import { Row } from "react-bootstrap"
 import { Button } from '../Button/Index.jsx';
-import { GREEN, PRIMARY, SECOND, WHITE } from "../../colors/Colors.js";
+import { WHITE } from "../../colors/Colors.js";
 
 export const SCol = styled(Col)`
     & .bt-adding button {

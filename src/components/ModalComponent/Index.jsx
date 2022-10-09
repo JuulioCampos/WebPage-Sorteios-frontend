@@ -1,8 +1,10 @@
 import React from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
+import { PageAtualCompraContext } from '../../providers/PageAtualCompra';
 
 export const ModalComponent = (props) => {
+    const { pageAtualCompra } = React.useContext(PageAtualCompraContext)
 
     return (
         <>
@@ -19,10 +21,14 @@ export const ModalComponent = (props) => {
                 <Modal.Body>
                     {props.children}
                 </Modal.Body>
-                <Modal.Footer>
-                <Button onClick={props.modalClose} variant="danger">Desistir</Button>
-                    {props.modalFooter || ''}
-                </Modal.Footer>
+                {
+                    // eslint-disable-next-line
+                    pageAtualCompra == 0 && 
+                    <Modal.Footer>
+                    <Button onClick={props.modalClose} variant="danger">Desistir</Button>
+                        {props.modalFooter || ''}
+                    </Modal.Footer>
+                }
             </Modal>
         </>
     );

@@ -29,3 +29,10 @@ export const validateEmail = (email) => {
         /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
       );
   };
+
+  export const escondeCpf = (cpf) => {
+    let _3 =  cpf.substring(2, 3)
+    let _2 =  cpf.substring(1, 2)
+    let _1 =  cpf.substring(3, 4)
+    return _1+_2+_3 + '.***.***-**'
+  }

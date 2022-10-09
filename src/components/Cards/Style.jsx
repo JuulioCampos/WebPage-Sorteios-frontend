@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import Card from 'react-bootstrap/Card';
-import { DARK, GREEN, PRIMARY, RED, WHITE } from "../../colors/Colors";
+import { DARK, GREEN, PRIMARY, WHITE } from "../../colors/Colors";
 
 export const SCard = styled(Card)`
     & .progress-bar {
