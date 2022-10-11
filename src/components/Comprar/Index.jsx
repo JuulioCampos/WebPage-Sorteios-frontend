@@ -5,14 +5,13 @@ import { PageAtualCompraContext } from "../../providers/PageAtualCompra"
 import { Api } from "../../services/Api"
 import { escondeCpf } from "../../services/Validations"
 import { Button } from "../Button/Index"
-import { CancelButton } from "./Style"
+import { CancelButton, QrCode } from "./Style"
 
 export const ComprarPage = (props) => {
     const { dadosUsuario } = React.useContext(DadosUsuarioContext)
     const { setPageAtualCompra } = React.useContext(PageAtualCompraContext)
     const [pix, setPix] = useState()
     function Comprar() {
-        console.log('passou')
         Api
             .post("/api/cria-pix", {
                 data: dadosUsuario
@@ -25,9 +24,6 @@ export const ComprarPage = (props) => {
             });
     }
     const valor = 'R$ ' + ((parseFloat(dadosUsuario.quantidade) * parseFloat(dadosUsuario.sorteio.valor_cota.replace(',', '.'))).toFixed(2)).replace('.', ',')
-    if (pix['qrcode']) {
-        console.log()
-    }
     return (
         <div>
             <Container>
@@ -42,21 +38,22 @@ export const ComprarPage = (props) => {
                     <input className="form-control" id={'sorteio_name'} type="text" value={dadosUsuario.sorteio.titulo} disabled />
                 </div>
                 {
-                    pix['qrcode'] &&
-                    <div>
+                    pix &&
+                    pix.qrcode && 
+                    <QrCode>
                         <h4 className="text-center pt-3">QRCODE PIX</h4>
                         <img style={{ width: '350px' }} src={ pix['qrcode']} alt="" srcset="" />
-                    </div>
+                    </QrCode>
                 }
 
                 <hr />
                 <Row className="div-comprar">
-                    <Col sm={6} xs={6}>
-                        <CancelButton onClick={() => setPageAtualCompra(0)} >Voltar</CancelButton>
+                    <Col className={"d-flex justify-content-start"}  sm={6} xs={6}>
+                        <CancelButton onClick={() => setPageAtualCompra(0)} >Trocar telefone</CancelButton>
                     </Col>
-                    <Col sm={6} xs={6}>
-                        {!pix && <Button onClick={Comprar} >Comprar</Button>}
-                        {pix && <Button onClick={Comprar} >Fechar</Button>}
+                    <Col className={"d-flex justify-content-end"}  sm={6} xs={6}>
+                        {!pix && <Button  onClick={Comprar} >Pagar Agora!</Button>}
+                        {pix && pix.qrcode && <Button onClick={props.modalClose} >Fechar</Button>}
                     </Col>
                 </Row>
             </Container>

@@ -11,3 +11,6 @@ export const CancelButton = styled(Button)`
         color: ${RED} !important;
     }
 `
+export const QrCode = styled.div` 
+    text-align: -webkit-center;
+`

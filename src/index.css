@@ -125,7 +125,7 @@ input.me-2.form-control {
   border-radius: 10px !important;
 }
 .modal-content {
-  width: max-content !important;
+  /* width: max-content !important; */
 }
 .div-comprar button{
   width: 150px !important;

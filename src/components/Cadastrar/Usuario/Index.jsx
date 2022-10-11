@@ -8,7 +8,7 @@ import { Button } from "../../Button/Index"
 import {CancelButton} from "./Style"
 
 export const FormUsuario = (props) => {
-    const { dadosUsuario, setDadosUsuario } = React.useContext(DadosUsuarioContext)
+    const { setDadosUsuario } = React.useContext(DadosUsuarioContext)
     const {setPageAtualCompra } = React.useContext(PageAtualCompraContext)
     const [sucess, setSucess] = useState('')
     const [email, setEmail] = useState('')
@@ -20,10 +20,9 @@ export const FormUsuario = (props) => {
     const [cidade, setCidade] = useState('')
     const [cep, setCep] = useState('')
     
-    
     const cadastrarUsuario = () => {
         if (unmaskCpf(cpf).length > 10 && nome.length > 9 && email.length > 10 ) {
-            setDadosUsuario({
+            const $data = {
                 'is_novo': true,
                 'email': email,
                 'telefone': props.telefone,
@@ -34,28 +33,30 @@ export const FormUsuario = (props) => {
                 'numero': numeroE,
                 'cidade': cidade,
                 'cep': cep
-            })
-        } else {
-            alert('preencha os campos corretamente')
-        }
-        console.log(dadosUsuario.cpf)
-        if (dadosUsuario.cpf) {
-            console.log(dadosUsuario)
+            }
+            setDadosUsuario($data)
             Api
             .post('/api/cadastra-usuario', {
-                data: dadosUsuario
+                data: $data
             })
-            .then((response) => setSucess(response.data))
+            .then(
+                function (response) {
+                    setSucess(response.data)
+                    setPageAtualCompra(0)
+                }
+                )
             .catch((err) => {
               alert("ops! ocorreu um erro" + err);
             });
-        }
-        
 
-        if(sucess) {
-            setPageAtualCompra(0)
+            if(sucess) {
+                setPageAtualCompra(0)
+            }
+        } else {
+            alert('preencha os campos corretamente')
         }
     }
+
     return (
         <Form className="row">
             <Col sm={12} xs={12}>

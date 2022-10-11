@@ -1,5 +1,6 @@
 import React, { useState } from "react"
 import { Col, Row } from "react-bootstrap"
+import { DARK } from "../../../colors/Colors"
 import { BotaoCompra } from "../../../components/BotaoCompra/Index"
 import { BuscaUsuario } from "../../../components/BuscaUsuario/Index"
 import { Button } from "../../../components/Button/Index"
@@ -18,7 +19,7 @@ import { Anuncio, DivComprar, DivIntroducao, PremioCota, ReadBefore, SCol, SDiv,
 
 export const SorteioUnico = (props) => {
     const { pageAtualCompra, setPageAtualCompra } = React.useContext(PageAtualCompraContext)
-    const { setDadosUsuario } = React.useContext(DadosUsuarioContext)
+    const { dadosUsuario, setDadosUsuario } = React.useContext(DadosUsuarioContext)
 
     const { contaCotas } = React.useContext(countCotasContext)
     // eslint-disable-next-line
@@ -27,44 +28,38 @@ export const SorteioUnico = (props) => {
 
     const [showModalCompra, setShowModalCompra] = useState(false);
     const [telefone, setTelefone] = useState('')
-    const [userData, setUserData] = useState(false)
     const handleModal = () => setShowModalCompra(contaCotas > 0 ? !showModalCompra : false);
 
     const getUsuario = () => {
         if (unmaskTelefone(telefone).length > 10) {
             const url = "/api/busca-usuario/" + unmaskTelefone(telefone)
-            try {
-                Api
-                    .post(url, {
-                        // put the rest of your config here
-                    })
-                    .then((response) => {
-                        let data = {}
-                        data.user = response.data[0]
-                        data.quantidade = contaCotas
-                        data.sorteio = {
-                            'titulo': sorteio_data.titulo,
-                            'id': props.id,
-                            'valor_cota': sorteio_data.valor_cota.replace('.', ',')
-                        }
-                        setUserData(data)
-                        setPageAtualCompra(3)
-                        setDadosUsuario(data)
-                    })
-                    .catch((err) => {
-                        setUserData({ erro: 404, messagem: 'not exists' })
-                    });
-            } catch (error) {
-                setUserData(false)
-            }
+            Api
+                .post(url, {
+                    // put the rest of your config here
+                })
+                .then((response) => {
+                    let data = {}
+                    data.user = response.data[0]
+                    data.quantidade = contaCotas
+                    data.sorteio = {
+                        'titulo': sorteio_data.titulo,
+                        'id': props.id,
+                        'valor_cota': sorteio_data.valor_cota.replace('.', ',')
+                    }
+                    setDadosUsuario(data)
+                    setPageAtualCompra(3)
+                })
+                .catch((err) => {
+                    setDadosUsuario({ erro: 404, messagem: 'not exists' })
+                });
 
         } else {
-            setUserData(false)
+            setDadosUsuario(false)
         }
     }
-    if (userData.erro) {
+    if (dadosUsuario.erro) {
         setPageAtualCompra(1)
-        setUserData(false)
+        setDadosUsuario(false)
     }
 
     return (
@@ -81,7 +76,7 @@ export const SorteioUnico = (props) => {
                         <Col style={{ padding: 0 }} xl={8} lg={8} md={8} sm={12}>
                             <CarouselFade id_sorteio={props.id} data={sorteio_data}></CarouselFade>
                         </Col>
-                        <SCol style={{ padding: 0 }} xl={4} lg={4} md={4} sm={12}>
+                        <SCol style={{ padding: 0, background: DARK }} xl={4} lg={4} md={4} sm={12}>
                             <DivIntroducao>
                                 <PremioCota>
                                     <p>
@@ -164,7 +159,7 @@ export const SorteioUnico = (props) => {
                 }
                 {
                     // eslint-disable-next-line
-                    pageAtualCompra == 3 && <ComprarPage></ComprarPage>
+                    pageAtualCompra == 3 && <ComprarPage modalClose={handleModal}></ComprarPage>
                 }
             </ModalComponent>
         </>

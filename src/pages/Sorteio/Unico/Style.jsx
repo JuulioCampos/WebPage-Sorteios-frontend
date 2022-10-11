@@ -1,6 +1,6 @@
 import { Col } from "react-bootstrap";
 import styled from "styled-components";
-import { DARK, PRIMARY, SECOND, WHITE } from "../../../colors/Colors";
+import { DARK, PRIMARY, RED, SECOND, WHITE } from "../../../colors/Colors";
 
 export const SDiv = styled.div`
     & h1{color: ${WHITE}; text-shadow: 3px 3px 11px #3127698f;}
@@ -36,7 +36,7 @@ export const SSection = styled.section`
     }
 `
 export const DivSeparator = styled.div`
-    background-color: red;
+    background-color: ${RED};
     border-radius: 10px;
     border:1px solid white;
 `
@@ -55,11 +55,10 @@ export const SorteioSection = styled.section`
 `
 
 export const SCol = styled(Col)`
-    background-color: ${DARK};
-    border-radius: 10px; 
+        border-radius: 10px; 
     border-top-left-radius:0; 
     border-bottom-left-radius: 0;
-
+    padding-bottom: 10px;
     @media (max-width: 991px) {
         border-radius: 0px; 
         border-bottom-right-radius:10px; 
