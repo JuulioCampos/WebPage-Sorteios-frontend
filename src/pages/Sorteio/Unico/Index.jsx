@@ -38,9 +38,14 @@ export const SorteioUnico = (props) => {
                     // put the rest of your config here
                 })
                 .then((response) => {
-                    let data = {}
-                    data.user = response.data[0]
-                    data.quantidade = contaCotas
+                    let data = {
+                        "user_id": response.data[0].data.id,
+                        "nome": response.data[0].data.nome,
+                        "cpf": response.data[0].data.cpf,
+                        "quantidade": contaCotas,
+                        "sorteio_id": props.id,
+                        "user": response.data[0].data
+                    }
                     data.sorteio = {
                         'titulo': sorteio_data.titulo,
                         'id': props.id,

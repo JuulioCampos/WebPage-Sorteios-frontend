@@ -8,7 +8,6 @@ import React from 'react';
 
 export const Cards = (props) => {
     const data = props.data;
-    // console.log('card', data.fotos[0].nome)
     return (
         <SCard style={{ width: '18rem' }}>
             <Card.Img variant="top" src={(BASEURL + data.fotos[0].url_foto)} />

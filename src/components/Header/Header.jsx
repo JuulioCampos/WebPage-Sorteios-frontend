@@ -9,32 +9,31 @@ import { SNavbar } from '../Style.jsx';
 import { ModalWindow } from '../Modal/Modal.jsx';
 import { Button } from '../Button/Index.jsx';
 import { Link } from 'react-router-dom';
-import { Api } from '../../services/Api.js';
 import { maskTelefone, unmaskTelefone } from '../../services/Validations.js';
+import { BuscaCotas } from '../../services/Requests/BuscaCotas.js';
 
 export const Header = (props) => {
   const [modalVisible, setModalVisible] = useState(false);
   const [telefone, setTelefone] = useState('')
   const [listaCotas, setListaCotas] = useState();
   const [isOpen, setIsOpen] = useState();
-
   const data = props.data
 
   const getCotas = () => {
-    if (unmaskTelefone(telefone).length > 10 && unmaskTelefone(telefone).length < 13 && listaCotas == null) {
-
-      const url = "/api/busca-cotas/" + unmaskTelefone(telefone);
-      Api
-        .get(url, {
-          // put the rest of your config here
-        })
-        .then((response) => setListaCotas(response.data))
-        .catch((err) => {
-          console.error("ops! ocorreu um erro" + err);
-        });
-    }
-    setModalVisible(true)
-    setIsOpen(true)
+    BuscaCotas(unmaskTelefone(telefone))
+      .then(
+        (response) => {
+          // eslint-disable-next-line 
+          if (response.status == 200) {
+            setListaCotas(response.data)
+            setModalVisible(true)
+            setIsOpen(true)
+          }
+          else {
+            alert('tivemos um erro por aqui, tente novamente!')
+          }
+        }
+      )
   }
   const btnClose = () => {
     setModalVisible(false)
@@ -52,25 +51,25 @@ export const Header = (props) => {
               className="me-auto my-2 my-lg-0"
               navbarScroll
             >
-              <Link  className='nav-link' to="/">Página inicial</Link>
-              
+              <Link className='nav-link' to="/">Página inicial</Link>
+
               <Link to={'/sorteios'} className="btn-sorteio ">
                 Sorteios
                 <NavDropdown d="navbarScrollingDropdown">
                   {
-                  data &&
+                    data &&
                     data.map((x, y) =>
-                      <Link key={y} style={{ color: "#533483", fontWeight: "500" }} data-rr-ui-dropdown-item="" className="dropdown-item" tabIndex="0"  to={"/sorteio/" + x.id}>
-                          {x.titulo}
+                      <Link key={y} style={{ color: "#533483", fontWeight: "500" }} data-rr-ui-dropdown-item="" className="dropdown-item" tabIndex="0" to={"/sorteio/" + x.id}>
+                        {x.titulo}
                       </Link>
                     )
                   }
 
                   <NavDropdown.Divider />
                   <Link style={{ color: "#89898a", fontWeight: "400" }} data-rr-ui-dropdown-item="" className="dropdown-item" tabIndex="0" to="/sorteio/finalizados">
-                      Finalizados
+                    Finalizados
                   </Link>
-              </NavDropdown>
+                </NavDropdown>
               </Link>
               <Link className='nav-link' to={'/contato'}>Contato</Link>
             </Nav>

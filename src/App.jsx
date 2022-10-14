@@ -1,6 +1,6 @@
 import React from "react";
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
-import { Route, Routes } from "react-router-dom"
+import { Route, Routes, Redirect } from "react-router-dom"
 import Container from "react-bootstrap/esm/Container.js";
 import { Header } from "./components/Header/Header";
 import { Footer } from "./components/Footer/Footer";
@@ -9,6 +9,8 @@ import { Sorteio } from "./pages/Sorteio/Index.jsx";
 import { TodosSorteios } from "./pages/Sorteios/Index.jsx";
 import { Contato } from "./pages/Contato/Index.jsx";
 import { ListaCotasContext } from "./providers/ListaSorteios";
+import { Login } from "./pages/Login/Index";
+import { Administracao } from "./pages/Authentic/Administracao/Index";
 
 
 export const App = () => {
@@ -27,6 +29,11 @@ export const App = () => {
             <Route path="/sorteio/:sorteio" element={<Sorteio data={listaSorteios} />} />
             <Route path="/sorteios/" element={<TodosSorteios data={listaSorteios} />} />
             <Route path="/contato" element={<Contato />} />
+            <Route path="/admin-rifa" element={<Login />} />
+            <Route path="/administracao" element={<Administracao />} />
+
+            {/* 404 */}
+            <Route path="*" element={<TodosSorteios data={listaSorteios} />} />
           </Routes>
         </Container>
         <Footer></Footer>

@@ -31,7 +31,7 @@ export const ComprarPage = (props) => {
                     <label htmlFor="">Nome</label>
                     <input className="form-control" id={'nome-user'} type="text" value={dadosUsuario.user.nome} disabled />
                     <label htmlFor="cpf-user">CPF</label>
-                    <input className="form-control" id={'cpf-user'} type="text" value={escondeCpf(dadosUsuario.user.cpf)} disabled />
+                    <input className="form-control" id={'cpf-user'} type="text" value={dadosUsuario.user.cpf} disabled />
                     <label htmlFor="value-to-price">Valor a pagar</label>
                     <input className="form-control" id={'value-to-price'} type="text" value={valor} disabled />
                     <label htmlFor="sorteio_name">Sorteio</label>

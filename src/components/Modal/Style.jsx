@@ -1,5 +1,6 @@
 import Modal from 'react-bootstrap/Modal';
 import styled from "styled-components";
+import { ALLRITE, RED, WAITING } from '../../colors/Colors';
 
 export const SModalBody = styled(Modal.Body)`
     h4 {
@@ -19,5 +20,18 @@ export const SDivSeparator = styled.div`
         & h4 {
             margin-top: 15px
         }
+    }
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 10px;
+    &.waiting {
+        background-color: ${WAITING};
+
+    }
+    &.allrite {
+        background-color: ${ALLRITE};
+    }
+    & b{
+        font-weight: 600;
     }
 `

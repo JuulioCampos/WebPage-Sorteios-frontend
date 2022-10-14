@@ -8,3 +8,5 @@ export const WHITE = "#FFF";
 export const BLACK = "#000";
 export const DARKTHEME = "#292929";
 export const COLORNAV = "#424242";
+export const WAITING = "#ffbdbd";
+export const ALLRITE = "#ceffe8";

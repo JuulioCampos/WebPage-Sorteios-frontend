@@ -8,6 +8,7 @@ import { ListaCotasProvider } from './providers/ListaSorteios';
 import { CountCotasProvider } from "./providers/CountCotas";
 import { DadosUsuarioProvider } from "./providers/DadosUsuario";
 import { PageAtualCompraProvider } from "./providers/PageAtualCompra";
+import { TokenProvider } from "./providers/Token";
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <ListaCotasProvider>
@@ -16,7 +17,9 @@ root.render(
         <CountCotasProvider>
           <DadosUsuarioProvider>
             <PageAtualCompraProvider>
+              <TokenProvider>
               <App />
+              </TokenProvider>
             </PageAtualCompraProvider>
           </DadosUsuarioProvider>
         </CountCotasProvider>
