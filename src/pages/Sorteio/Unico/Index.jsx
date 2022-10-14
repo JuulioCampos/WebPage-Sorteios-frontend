@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import { Col, Row } from "react-bootstrap"
-import { DARK } from "../../../colors/Colors"
+import { DARK, WHITE } from "../../../colors/Colors"
 import { BotaoCompra } from "../../../components/BotaoCompra/Index"
 import { BuscaUsuario } from "../../../components/BuscaUsuario/Index"
 import { Button } from "../../../components/Button/Index"
@@ -72,8 +72,8 @@ export const SorteioUnico = (props) => {
             <SorteioSection>
                 <SDiv className="d-flex align-center row justify-content-between">
                     <Col sm={12} md={12} lg={6} className="">
-                        <h1 className=""><Icon width={"5"} color={"white"} iconName={"fa-solid fa-star"} /> {sorteio_data.titulo}</h1>
-                        <small className="text-center text-lg-left">{'Sorteio principal '}</small>
+                        <h1 className=""><Icon width={"5"} color={WHITE} iconName={"fa-solid fa-star"} /> {sorteio_data.titulo}</h1>
+                        <small className="text-center text-lg-left">{sorteio_data.principal ? 'Sorteio principal ' : ''}</small>
                     </Col>
                 </SDiv>
                 <SSection style={{ padding: '8px' }} >

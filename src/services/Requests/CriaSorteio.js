@@ -8,8 +8,8 @@ export const createSorteio = async (data) => {
             let response = await Api.post(url, data, {
                 headers: {
                     "Content-Type": "multipart/form-data",
-                    "type": "formData",
                     "Accept": "application/json",
+                    "Access-Control-Allow-Origin": '*',
                     Authorization: `Bearer ${token.replace('"', '')}`,
                 }
             })

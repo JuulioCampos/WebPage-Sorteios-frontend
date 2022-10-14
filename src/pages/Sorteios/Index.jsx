@@ -14,8 +14,8 @@ export const TodosSorteios = (props) => {
                 {
                     data &&
                     data.map((data, key) =>(
-                        <Col className={"d-flex justify-content-center p-3"} xl={4} lg ={4} md={6} sm={12}>
-                            <Cards data={data} key={key}> 
+                        <Col key={key} className={"d-flex justify-content-center p-3"} xl={4} lg ={4} md={6} sm={12}>
+                            <Cards key={key} data={data} > 
                             </Cards>
                         </Col>
                         )

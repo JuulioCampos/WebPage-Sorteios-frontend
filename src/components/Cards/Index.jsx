@@ -10,7 +10,7 @@ export const Cards = (props) => {
     const data = props.data;
     return (
         <SCard style={{ width: '18rem' }}>
-            <Card.Img variant="top" src={(BASEURL + data.fotos[0].url_foto)} />
+            <Card.Img variant="top" src={(BASEURL + data.fotos[0].url_foto) ?? 'images/loading.gif'} />
             <Card.Body>
                 <Cota>
                     <p><b>Preço cota: </b></p>

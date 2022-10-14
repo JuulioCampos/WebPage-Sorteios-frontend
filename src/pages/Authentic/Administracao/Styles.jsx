@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { WHITE } from "../../../colors/Colors";
+import { GREEN, RED,WHITE } from "../../../colors/Colors";
 
 export const DivForm = styled.div` 
     background: ${WHITE};
@@ -9,6 +9,14 @@ export const DivForm = styled.div`
 
     & label {
         font-weight: 500;
+    }
+    & label.ok {
+        background-color: ${GREEN};
+        color: ${WHITE}
+    }
+    & label.notok{
+        background-color: ${RED};
+        color: ${WHITE}
     }
 `
 export const DivButton = styled.div`
