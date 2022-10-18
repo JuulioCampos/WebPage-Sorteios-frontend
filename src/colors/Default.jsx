@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { BACKGROUNDHOME, SECOND, THIRD } from "./Colors";
+import { BACKGROUNDHOME, PRIMARY, SECOND, THIRD } from "./Colors";
 
 export const HomeDiv = styled.div` 
     background: ${BACKGROUNDHOME};
@@ -15,5 +15,12 @@ export const HomeDiv = styled.div`
 
         }
     }
+    & .navbar-toggler {
+        background-color: ${THIRD}; 
 
+    }
+    & .navbar-toggler.collapsed {
+        background-color: ${BACKGROUNDHOME};
+
+    }
 `
