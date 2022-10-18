@@ -28,7 +28,6 @@ export const SCol = styled(Col)`
         width: 125px !important;
     }
     & #cotas-span {
-        border: 0;
         padding-left: 2px !important;
         font-weight: 600 !important;
         color: ${SECOND}

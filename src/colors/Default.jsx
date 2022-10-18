@@ -10,9 +10,10 @@ export const HomeDiv = styled.div`
         border: 1px solid #d5d5d5;
         &#cotas {
             text-align: end;
+            border: 1px solid #d7d3d3;
             border-right: 0;
-            color: ${SECOND}
-
+            color: ${SECOND};
+            padding-right: 1px;
         }
     }
     & .navbar-toggler {
