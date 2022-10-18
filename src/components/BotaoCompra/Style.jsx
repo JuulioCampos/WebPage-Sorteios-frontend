@@ -39,7 +39,8 @@ export const SCol = styled(Col)`
         width: 60px!important;
         font-weight: bold !important;
         background-color: #e8ebee !important;
-        border: 0;
+        border: 1px solid #d5d5d5;
+        border-left: 0;
         text-align: center;
         padding-right: 0 !important;
     }
