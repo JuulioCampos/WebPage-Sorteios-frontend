@@ -21,7 +21,7 @@ export const Footer = (props) => {
                         <i className="px-1 fa-brands fa-whatsapp"></i>
                     </ListGroup>
                 </SUl>
-                <span style={{marginBottom: 0}}className="text-center">Desenvolvido por KobRifas @ 2021</span>
+                <span style={{marginBottom: 0}}className="text-center">Desenvolvido por JulioCampos @ 2022</span>
             </Container>
         </SFooter>
     )
