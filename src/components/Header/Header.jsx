@@ -4,7 +4,7 @@ import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
-import { DARK } from '../../colors/Colors.js';
+import { THIRD } from '../../colors/Colors.js';
 import { SNavbar } from '../Style.jsx';
 import { ModalWindow } from '../Modal/Modal.jsx';
 import { Button } from '../Button/Index.jsx';
@@ -42,7 +42,7 @@ export const Header = (props) => {
   }
   return (
     <>
-      <SNavbar style={{ background: DARK }} variant="dark" expand="lg">
+      <SNavbar style={{ background: THIRD }} variant="dark" expand="lg">
         <Container>
           <Navbar.Brand href="/">LOGODAEMPRESA</Navbar.Brand>
           <Navbar.Toggle aria-controls="navbarScroll" />

@@ -1,12 +1,12 @@
 export const PRIMARY = '#533483';
 export const SECOND = '#0F3460';
-export const DARK = '#16213E';
-export const LIGHT = '#F9F9F9';
+export const THIRD = '#f1f1f1';
+export const FOURTH = '#F9F9F9';
 export const RED = "#E94560";
 export const GREEN = "#37703b";
 export const WHITE = "#FFF";
 export const BLACK = "#000";
-export const DARKTHEME = "#292929";
+export const INVERSECOLOR = "#292929";
 export const COLORNAV = "#424242";
 export const WAITING = "#ffbdbd";
 export const ALLRITE = "#ceffe8";

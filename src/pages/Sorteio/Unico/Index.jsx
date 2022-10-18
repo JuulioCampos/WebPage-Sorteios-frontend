@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import { Col, Row } from "react-bootstrap"
-import { DARK, WHITE } from "../../../colors/Colors"
+import { THIRD, WHITE } from "../../../colors/Colors"
 import { BotaoCompra } from "../../../components/BotaoCompra/Index"
 import { BuscaUsuario } from "../../../components/BuscaUsuario/Index"
 import { Button } from "../../../components/Button/Index"
@@ -82,7 +82,7 @@ export const SorteioUnico = (props) => {
                         <Col style={{ padding: 0 }} xl={8} lg={8} md={8} sm={12}>
                             <CarouselFade id_sorteio={props.id} data={sorteio_data}></CarouselFade>
                         </Col>
-                        <SCol style={{ padding: 0, background: DARK }} xl={4} lg={4} md={4} sm={12}>
+                        <SCol style={{ padding: 0, background: THIRD }} xl={4} lg={4} md={4} sm={12}>
                             <DivIntroducao>
                                 <PremioCota>
                                     <p>

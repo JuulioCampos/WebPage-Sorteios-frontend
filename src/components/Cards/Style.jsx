@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import Card from 'react-bootstrap/Card';
-import { DARK, GREEN, PRIMARY, WHITE } from "../../colors/Colors";
+import { THIRD, GREEN, PRIMARY, WHITE } from "../../colors/Colors";
 
 export const SCard = styled(Card)`
     & .progress-bar {
@@ -10,7 +10,7 @@ export const SCard = styled(Card)`
     & .progress {
         background-color: ${WHITE}10;
     }
-    background-color: ${DARK};
+    background-color: ${THIRD};
     color: ${WHITE};
     -webkit-box-shadow: 0px 10px 25px 9px rgb(0 0 0 / 53%);
     -moz-box-shadow: 0px 10px 25px 9px rgb(0 0 0 / 53%);
@@ -33,7 +33,7 @@ export const Cota = styled.div `
     width: -moz-max-content;
     width: max-content;
     background: ${WHITE};
-    color: ${DARK};
+    color: ${THIRD};
     padding: 14px 20px 1px 20px;
     border-radius: 20px;
     border: 1px solid ${PRIMARY};
