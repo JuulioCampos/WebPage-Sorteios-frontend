@@ -2,10 +2,9 @@ import { useState } from 'react';
 import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
-import { THIRD } from '../../colors/Colors.js';
-import { SNavbar } from '../Style.jsx';
+import { PRIMARY } from '../../colors/Colors.js';
+import { Input, Navbar } from './Styles';
 import { ModalWindow } from '../Modal/Modal.jsx';
 import { Button } from '../Button/Index.jsx';
 import { Link } from 'react-router-dom';
@@ -42,7 +41,7 @@ export const Header = (props) => {
   }
   return (
     <>
-      <SNavbar style={{ background: THIRD }} variant="dark" expand="lg">
+      <Navbar style={{ background: PRIMARY }} variant="dark" expand="lg">
         <Container>
           <Navbar.Brand href="/">LOGODAEMPRESA</Navbar.Brand>
           <Navbar.Toggle aria-controls="navbarScroll" />
@@ -74,10 +73,10 @@ export const Header = (props) => {
               <Link className='nav-link' to={'/contato'}>Contato</Link>
             </Nav>
             <Form className="d-flex">
-              <Form.Control
+              <Input
                 type="search"
                 placeholder="Seu telefone"
-                className="me-2"
+                className="form-control"
                 aria-label="Search"
                 onChange={(e) => setTelefone(e.target.value)}
                 value={maskTelefone(telefone)}
@@ -88,7 +87,7 @@ export const Header = (props) => {
             </Form>
           </Navbar.Collapse>
         </Container>
-      </SNavbar>
+      </Navbar>
 
       {isOpen && listaCotas && <ModalWindow visible={modalVisible} btnClose={btnClose} idSorteio={null} telefone={telefone} listaCotas={listaCotas}></ModalWindow>}
     </>

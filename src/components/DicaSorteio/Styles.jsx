@@ -1,6 +1,6 @@
 import { Col } from "react-bootstrap";
 import styled from "styled-components";
-import { THIRD, SECOND, WHITE} from "../../colors/Colors";
+import { PRIMARY, SECOND, WHITE} from "../../colors/Colors";
 import { BoxShadow } from "../../colors/Styles";
 
 export const DivMain = styled.div` 
@@ -18,7 +18,7 @@ export const ColDicas = styled(Col)`
     & div {
     margin: 2px 2px;
     
-    background-color: ${THIRD}; 
+    background-color: ${PRIMARY}; 
     border-radius: 10px;
     color: ${WHITE};
     padding: 10px 10px;

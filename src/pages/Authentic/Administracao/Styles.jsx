@@ -1,8 +1,8 @@
 import styled from "styled-components";
-import { GREEN, RED,WHITE } from "../../../colors/Colors";
+import { GREEN, RED,THIRD,WHITE } from "../../../colors/Colors";
 
 export const DivForm = styled.div` 
-    background: ${WHITE};
+    background: ${THIRD};
     padding: 15px;
     margin-top: 10px;
     border-radius: 10px;

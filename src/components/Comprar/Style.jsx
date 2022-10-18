@@ -1,10 +1,10 @@
 import styled from "styled-components";
-import { PRIMARY, RED, WHITE } from "../../colors/Colors";
+import { THIRD, RED, WHITE } from "../../colors/Colors";
 import { Button } from "../Button/Index";
 
 export const CancelButton = styled(Button)`
     background-color: ${RED} !important;
-    border: 1px solid ${PRIMARY} !important;
+    border: 1px solid ${THIRD} !important;
     :hover {
         background-color: ${WHITE} !important;
         border: 1px solid ${RED} !important;

@@ -10,7 +10,7 @@ export const SCard = styled(Card)`
     & .progress {
         background-color: ${WHITE}10;
     }
-    background-color: ${THIRD};
+    background-color: ${PRIMARY};
     color: ${WHITE};
     -webkit-box-shadow: 0px 10px 25px 9px rgb(0 0 0 / 53%);
     -moz-box-shadow: 0px 10px 25px 9px rgb(0 0 0 / 53%);
@@ -33,10 +33,10 @@ export const Cota = styled.div `
     width: -moz-max-content;
     width: max-content;
     background: ${WHITE};
-    color: ${THIRD};
+    color: ${PRIMARY};
     padding: 14px 20px 1px 20px;
     border-radius: 20px;
-    border: 1px solid ${PRIMARY};
+    border: 1px solid ${THIRD};
     position: relative;
     top: -35px;
     justify-content: center;

@@ -13,7 +13,7 @@ export const BuscaUsuario = (props) => {
                 value={props.value}
             />
             <div className="search-cotas">
-                <Button label="Buscar Cadastro" onClick={props.onClick}>{props.children ?? 'Buscar Cadasro'}</Button>
+                <Button className={"p-3"} label="Buscar Cadastro" onClick={props.onClick}>{props.children ?? 'Buscar Cadasro'}</Button>
             </div>
         </Form>
     )

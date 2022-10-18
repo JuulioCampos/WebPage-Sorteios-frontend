@@ -11,6 +11,7 @@ import { Contato } from "./pages/Contato/Index.jsx";
 import { ListaCotasContext } from "./providers/ListaSorteios";
 import { Login } from "./pages/Login/Index";
 import { Administracao } from "./pages/Authentic/Administracao/Index";
+import { HomeDiv } from "./colors/Default";
 
 
 export const App = () => {
@@ -21,7 +22,7 @@ export const App = () => {
   }
   if (listaSorteios) {
     return (
-      <>
+      <HomeDiv>
         <Header data={listaSorteios} />
         <Container>
           <Routes>
@@ -37,7 +38,7 @@ export const App = () => {
           </Routes>
         </Container>
         <Footer></Footer>
-      </>
+      </HomeDiv>
     )
   }
   return (

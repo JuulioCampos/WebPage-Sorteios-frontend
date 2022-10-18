@@ -1,16 +1,16 @@
 import { Col } from "react-bootstrap";
 import styled from "styled-components";
-import {PRIMARY, RED, SECOND, WHITE } from "../../../colors/Colors";
+import {THIRD, RED, SECOND, WHITE, PRIMARY } from "../../../colors/Colors";
 
 export const SDiv = styled.div`
-    & h1{color: ${WHITE}; text-shadow: 3px 3px 11px #3127698f;}
+    & h1{ text-shadow: 3px 3px 11px #3127698f;}
     & i {
         font-size: 1.5rem;
         position: relative;
         top: -5px;
         color: ${WHITE} !important;
         -webkit-text-stroke-width: 2px;
-        -webkit-text-stroke-color: ${PRIMARY};
+        -webkit-text-stroke-color: ${THIRD};
         text-shadow: 3px 3px 11px #31276984;
     }
     & small{ 
@@ -45,7 +45,7 @@ export const DivIntroducao = styled.div`
 `
 
 export const SorteioSection = styled.section`
-    background-color:  ${SECOND}50;
+    background-color:  ${PRIMARY};
     padding: 15px;
     margin-top: 15px;
     border-radius: 15px;
@@ -96,7 +96,7 @@ export const Anuncio = styled.p`
     }
     
     ::-webkit-scrollbar-thumb {
-        background-color: ${PRIMARY};
+        background-color: ${THIRD};
         outline: 1px solid #3746c1;
         opacity: 0.3;
         opacity: 0.3;
@@ -111,7 +111,7 @@ export const Anuncio = styled.p`
     }
 `
 export const ReadBefore = styled.div`
-    border-top: 1px solid  ${PRIMARY};
+    border-top: 1px solid  ${THIRD};
     padding-top: 20px;
     max-height: 380px;
 
@@ -133,7 +133,7 @@ export const PremioCota = styled.div`
     & p {
     background-color: white;
     width: max-content;
-    color: black;
+    color: ${THIRD};
     padding: 10px;
     border-radius: 10px;
     margin: 0 !important

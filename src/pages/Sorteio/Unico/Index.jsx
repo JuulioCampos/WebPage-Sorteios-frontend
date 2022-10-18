@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import { Col, Row } from "react-bootstrap"
-import { THIRD, WHITE } from "../../../colors/Colors"
+import { BACKGROUNDHOME, THIRD } from "../../../colors/Colors"
 import { BotaoCompra } from "../../../components/BotaoCompra/Index"
 import { BuscaUsuario } from "../../../components/BuscaUsuario/Index"
 import { Button } from "../../../components/Button/Index"
@@ -73,7 +73,7 @@ export const SorteioUnico = (props) => {
             <SorteioSection>
                 <SDiv className="d-flex align-center row justify-content-between">
                     <Col sm={12} md={12} lg={6} className="">
-                        <h1 className=""><Icon width={"5"} color={WHITE} iconName={"fa-solid fa-star"} /> {sorteio_data.titulo}</h1>
+                        <h1 className=""><Icon width={"5"} color={THIRD} iconName={"fa-solid fa-star"} /> {sorteio_data.titulo}</h1>
                         <small className="text-center text-lg-left">{sorteio_data.principal ? 'Sorteio principal ' : ''}</small>
                     </Col>
                 </SDiv>
@@ -82,14 +82,14 @@ export const SorteioUnico = (props) => {
                         <Col style={{ padding: 0 }} xl={8} lg={8} md={8} sm={12}>
                             <CarouselFade id_sorteio={props.id} data={sorteio_data}></CarouselFade>
                         </Col>
-                        <SCol style={{ padding: 0, background: THIRD }} xl={4} lg={4} md={4} sm={12}>
+                        <SCol style={{ padding: 0, background: BACKGROUNDHOME }} xl={4} lg={4} md={4} sm={12}>
                             <DivIntroducao>
                                 <PremioCota>
                                     <p>
                                         <div>
-                                            <Icon width={"5"} color={"black"} iconName={"fa-solid fa-star"} />
+                                            <Icon width={"5"} color={THIRD} iconName={"fa-solid fa-star"} />
                                             &nbsp; PREÇO DA COTA: <b>R${sorteio_data.valor_cota.replace('.', ',') ?? '0,60'}</b>&nbsp;
-                                            <Icon width={"5"} color={"black"} iconName={"fa-solid fa-star"} />
+                                            <Icon width={"5"} color={THIRD} iconName={"fa-solid fa-star"} />
                                         </div>
                                     </p>
                                 </PremioCota>

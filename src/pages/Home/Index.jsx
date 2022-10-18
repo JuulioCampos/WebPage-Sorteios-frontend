@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/heading-has-content */
 import { Col, Row } from "react-bootstrap";
 import { Link} from "react-router-dom";
-import { WHITE } from "../../colors/Colors";
+import { THIRD} from "../../colors/Colors";
 import { Button } from "../../components/Button/Index";
 import { CarouselFade } from "../../components/Carousel/Index";
 import { DicaSorteios } from "../../components/DicaSorteio/Index";
@@ -16,7 +16,7 @@ export const Home = (props) => {
 
     return (
       <SDiv>
-        <h1 style={{ color: WHITE }}>
+        <h1>
           Faça parte do nossos sorteios hoje mesmo. Com alguns centavos, você
           concorre a prêmios sonhados!
         </h1>
@@ -27,8 +27,8 @@ export const Home = (props) => {
         </Link>
         <SorteioMain>
           <div className="d-flex title">
-            <Icon width={"5"} color={WHITE} iconName={"fa-solid fa-star"} />
-            <h2 style={{ color: WHITE }}>
+            <Icon width={"5"} color={THIRD} iconName={"fa-solid fa-star"} />
+            <h2>
               Confira aqui nosso sorteio principal
             </h2>
           </div>
@@ -54,7 +54,7 @@ export const Home = (props) => {
                     <div>
                       <Icon
                         width={"5"}
-                        color={"black"}
+                        color={THIRD}
                         iconName={"fa-solid fa-star"}
                       />
                       &nbsp; PREÇO DA COTA:{" "}
@@ -64,7 +64,7 @@ export const Home = (props) => {
                       &nbsp;
                       <Icon
                         width={"5"}
-                        color={"black"}
+                        color={THIRD}
                         iconName={"fa-solid fa-star"}
                       />
                     </div>

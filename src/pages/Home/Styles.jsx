@@ -1,11 +1,11 @@
 import styled from "styled-components";
-import { BLACK, SECOND, WHITE } from "../../colors/Colors";
+import { PRIMARY, THIRD, WHITE } from "../../colors/Colors";
 import { BoxShadow } from "../../colors/Styles";
 
 export const SorteioMain = styled.div`
     margin-top: 25px;
     box-pack: inherit;
-    background-color: ${SECOND}50;
+    background-color: ${PRIMARY};
     border-radius: 10px;
     padding: 15px;
     box-shadow: ${BoxShadow};
@@ -40,7 +40,7 @@ export const DadosSorteio = styled.div`
         font-size: 1.2rem;
         b {
             font-size: 1.5rem;
-            color: ${BLACK}
+            color: ${THIRD}F1
         }
     }
 `

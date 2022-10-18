@@ -2,7 +2,7 @@ import { Col } from "react-bootstrap";
 import styled from "styled-components";
 import { Row } from "react-bootstrap"
 import { Button } from '../Button/Index.jsx';
-import { WHITE } from "../../colors/Colors.js";
+import { SECOND, WHITE } from "../../colors/Colors.js";
 
 export const SCol = styled(Col)`
     & .bt-adding button {
@@ -27,10 +27,11 @@ export const SCol = styled(Col)`
     & button {
         width: 125px !important;
     }
-    & .cotas-span {
+    & #cotas-span {
         border: 0;
-        padding-left: 0 !important;
-
+        padding-left: 2px !important;
+        font-weight: 600 !important;
+        color: ${SECOND}
     }
     span#cotas-span {
         padding-left: 0;
