@@ -1,9 +1,9 @@
 import styled from "styled-components";
-import { BACKGROUNDHOME, PRIMARY, SECOND, THIRD } from "./Colors";
+import { BACKGROUNDHOME, SECOND, THIRD } from "./Colors";
 
 export const HomeDiv = styled.div` 
     background: ${BACKGROUNDHOME};
-    & h1, h2, h3, p, span, small, h4, h5, i, label  {
+    & h1, h2, h3, p, span, small, h4, h5, i, label,.h5  {
         color: ${THIRD}
     }
     & input {
