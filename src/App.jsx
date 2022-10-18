@@ -1,6 +1,6 @@
 import React from "react";
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
-import { Route, Routes, Redirect } from "react-router-dom"
+import { Route, Routes } from "react-router-dom"
 import Container from "react-bootstrap/esm/Container.js";
 import { Header } from "./components/Header/Header";
 import { Footer } from "./components/Footer/Footer";
@@ -25,7 +25,7 @@ export const App = () => {
         <Header data={listaSorteios} />
         <Container>
           <Routes>
-            <Route path="/" element={<Home />} />
+            <Route path="/" element={<Home data={listaSorteios} />} />
             <Route path="/sorteio/:sorteio" element={<Sorteio data={listaSorteios} />} />
             <Route path="/sorteios/" element={<TodosSorteios data={listaSorteios} />} />
             <Route path="/contato" element={<Contato />} />

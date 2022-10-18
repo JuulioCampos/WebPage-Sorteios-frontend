@@ -1,6 +1,6 @@
 import { Col } from "react-bootstrap";
 import styled from "styled-components";
-import { DARK, PRIMARY, RED, SECOND, WHITE } from "../../../colors/Colors";
+import {PRIMARY, RED, SECOND, WHITE } from "../../../colors/Colors";
 
 export const SDiv = styled.div`
     & h1{color: ${WHITE}; text-shadow: 3px 3px 11px #3127698f;}

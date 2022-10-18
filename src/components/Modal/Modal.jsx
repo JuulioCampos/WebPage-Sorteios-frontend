@@ -28,7 +28,7 @@ export const ModalWindow = (props) => {
                                                                         }>{x.cotas_compradas}</div>   </p>
                                 <p><b>Forma de pagamento:</b> {'PIX'}</p>
                                 <p><b>Status: </b>{x.status !== 'pago' ? 'Não pago': 'Pago'}</p>
-                                <p><b>{x.status !== 'pago' ? '': 'Comprovante: '}</b>{x.status !== 'pago' ? <a href={x.url_pagamento} target='_blank'> Clique aqui para pagar</a> : <a href={x.url_pagamento} target='_blank'> Clique aqui</a>}</p>
+                                <p><b>{x.status !== 'pago' ? '': 'Comprovante: '}</b>{x.status !== 'pago' ? <a  rel="noreferrer"  href={x.url_pagamento} target='_blank'> Clique aqui para pagar</a> : <a  rel="noreferrer"  href={x.url_pagamento} target='_blank'> Clique aqui</a>}</p>
                             </SDiv>
                         </SDivSeparator>)
                 }

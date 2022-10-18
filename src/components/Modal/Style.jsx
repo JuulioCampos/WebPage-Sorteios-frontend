@@ -1,6 +1,6 @@
 import Modal from 'react-bootstrap/Modal';
 import styled from "styled-components";
-import { ALLRITE, RED, WAITING } from '../../colors/Colors';
+import { ALLRITE, WAITING } from '../../colors/Colors';
 
 export const SModalBody = styled(Modal.Body)`
     h4 {

@@ -1,5 +1,4 @@
 import { Api } from "../Api";
-import { unmaskTelefone } from "../Validations";
 
 export const createSorteio = async (data) => {
         const token = localStorage.getItem("token")

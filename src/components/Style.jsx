@@ -6,7 +6,7 @@ export const SDiv = styled.div`
   h1 {
     margin: 0 auto;
     position: relative;
-    margin-top: 15% !important;
+    margin-top: 2rem !important;
     margin-bottom: 20px;
   }
 `;

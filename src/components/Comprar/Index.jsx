@@ -3,7 +3,6 @@ import { Col, Container, Row } from "react-bootstrap"
 import { DadosUsuarioContext } from "../../providers/DadosUsuario"
 import { PageAtualCompraContext } from "../../providers/PageAtualCompra"
 import { Api } from "../../services/Api"
-import { escondeCpf } from "../../services/Validations"
 import { Button } from "../Button/Index"
 import { CancelButton, QrCode } from "./Style"
 
