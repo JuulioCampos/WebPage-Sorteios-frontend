@@ -22,7 +22,7 @@ export const Home = (props) => {
           concorre a prêmios sonhados!
         </h1>
         <Link to="/sorteios">
-          <Button style={{ Width: "300px !important" }} label="Ver sorteios">
+          <Button className={"p-3"} style={{ Width: "300px !important" }} label="Ver sorteios">
             Ver todos sorteios
           </Button>
         </Link>
