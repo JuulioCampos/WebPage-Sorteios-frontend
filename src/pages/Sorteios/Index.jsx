@@ -1,6 +1,9 @@
 import { Row } from "react-bootstrap"
 import Col from 'react-bootstrap/Col';
+import { WHITE } from "../../colors/Colors";
 import { Cards } from "../../components/Cards/Index"
+import { DicaSorteios } from "../../components/DicaSorteio/Index";
+import { Icon } from "../../components/Icons/Index";
 import { SH1 } from "./Style"
 
 export const TodosSorteios = (props) => {
@@ -8,7 +11,9 @@ export const TodosSorteios = (props) => {
     return (
         <>
             <SH1>
+            <Icon width={"5"} color={WHITE} iconName={"fa-solid fa-star"} />
                 Confira os sorteios que estão rolando
+            <Icon width={"5"} color={WHITE} iconName={"fa-solid fa-star"} />
             </SH1>
             <Row>
                 {
@@ -22,6 +27,9 @@ export const TodosSorteios = (props) => {
                     )
                 }
             </Row>
+            <div>
+                <DicaSorteios></DicaSorteios>
+            </div>
         </>
     )
 }

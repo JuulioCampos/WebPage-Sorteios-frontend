@@ -1,0 +1,1 @@
+export const BoxShadow = "0px 10px 25px 9px rgb(0 0 0 / 53%)"

@@ -1,5 +1,4 @@
 import { Api } from "../Api";
-import { unmaskTelefone } from "../Validations";
 
 export const postLogin = async (email, senha, checked=false) => {
     if (email && senha) {

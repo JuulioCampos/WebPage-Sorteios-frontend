@@ -34,7 +34,9 @@ export const Administracao = () => {
             localStorage.setItem('token', JSON.stringify(''))
         }
 
-        ValidaToken(token).then(r => {
+        ValidaToken(token).then(r => 
+            {
+            // eslint-disable-next-line
             if (!(r.status == 200)) {
                 setToken(undefined)
                 localStorage.setItem('token', JSON.stringify(undefined));
@@ -43,8 +45,9 @@ export const Administracao = () => {
             localStorage.setItem('token', JSON.stringify(undefined));
             setToken(undefined)
         })
-    }, [])
+    })
 
+    // eslint-disable-next-line
     if (!token || token == '') {
         navigate('/')
         return

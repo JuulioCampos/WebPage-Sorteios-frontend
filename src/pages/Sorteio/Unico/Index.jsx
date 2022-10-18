@@ -7,6 +7,7 @@ import { Button } from "../../../components/Button/Index"
 import { FormUsuario } from "../../../components/Cadastrar/Usuario/Index"
 import { CarouselFade } from "../../../components/Carousel/Index"
 import { ComprarPage } from "../../../components/Comprar/Index"
+import { DicaSorteios } from "../../../components/DicaSorteio/Index"
 import { Icon } from "../../../components/Icons/Index"
 import { ModalComponent } from "../../../components/ModalComponent/Index"
 import { countCotasContext } from "../../../providers/CountCotas"
@@ -147,7 +148,7 @@ export const SorteioUnico = (props) => {
                     </Col>
                 </Row>
             </SorteioSection>
-
+            <DicaSorteios></DicaSorteios>
             <ModalComponent
                 estado={showModalCompra}
                 modalClose={handleModal || false}
