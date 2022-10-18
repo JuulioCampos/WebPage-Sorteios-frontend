@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { BLACK, DARK, SECOND, WHITE } from "../../colors/Colors";
+import { BLACK, SECOND, WHITE } from "../../colors/Colors";
 import { BoxShadow } from "../../colors/Styles";
 
 export const SorteioMain = styled.div`

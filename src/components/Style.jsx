@@ -1,6 +1,6 @@
 import Navbar from "react-bootstrap/Navbar";
 import styled from "styled-components";
-import { DARK, WHITE } from "../colors/Colors";
+import { THIRD, WHITE } from "../colors/Colors";
 
 export const SDiv = styled.div`
   h1 {
@@ -15,7 +15,7 @@ export const SNavbar = styled(Navbar)`
 `;
 
 export const SFooter = styled.footer`
-    background-color: ${DARK} !important;
+    background-color: ${THIRD} !important;
     position: relative;
     bottom: 0 !important;
     width: 100%;

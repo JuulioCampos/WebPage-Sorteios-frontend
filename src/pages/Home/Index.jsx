@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/heading-has-content */
 import { Col, Row } from "react-bootstrap";
-import { Link, useNavigate } from "react-router-dom";
+import { Link} from "react-router-dom";
 import { WHITE } from "../../colors/Colors";
 import { Button } from "../../components/Button/Index";
 import { CarouselFade } from "../../components/Carousel/Index";
@@ -14,7 +14,6 @@ export const Home = (props) => {
     const data = props.data;
     const SorteioPrincipal = data.find((sorteio) => sorteio.principal === true);
 
-    console.log(SorteioPrincipal);
     return (
       <SDiv>
         <h1 style={{ color: WHITE }}>
