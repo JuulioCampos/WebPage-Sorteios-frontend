@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { WHITE, THIRD, SECOND} from "../../colors/Colors";
 
 export const SButton = styled(Button)`
-    background-color: ${THIRD} !important;
+    background-color: ${THIRD} ;
     color: ${WHITE} !important;
     width: 250px;
     padding: .5rem;
