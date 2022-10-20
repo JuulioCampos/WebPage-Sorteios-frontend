@@ -13,6 +13,11 @@ export const Input = styled.input`
     width: 180px ;
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
-    color: ${THIRD}
+    color: ${THIRD};
 
+`
+export const SearchCotas = styled.div`
+    button {
+        
+    }
 `

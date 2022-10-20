@@ -1,5 +1,6 @@
 import React, { useState } from "react"
 import { Col, Row } from "react-bootstrap"
+import Swal from "sweetalert2"
 import { BACKGROUNDHOME, THIRD } from "../../../colors/Colors"
 import { BotaoCompra } from "../../../components/BotaoCompra/Index"
 import { BuscaUsuario } from "../../../components/BuscaUsuario/Index"
@@ -56,6 +57,11 @@ export const SorteioUnico = (props) => {
                     setPageAtualCompra(3)
                 })
                 .catch((err) => {
+                    Swal.fire({
+                        icon: 'warning',
+                        title: 'Oops...',
+                        text: 'Não encontramos seu cadastro. Crie uma conta e refaça a compra!',
+                      })
                     setDadosUsuario({ erro: 404, messagem: 'not exists' })
                 });
 

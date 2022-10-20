@@ -1,5 +1,6 @@
 import React, { useState } from "react"
 import { Col, Form } from "react-bootstrap"
+import Swal from "sweetalert2"
 import { DadosUsuarioContext } from "../../../providers/DadosUsuario"
 import { PageAtualCompraContext } from "../../../providers/PageAtualCompra"
 import { Api } from "../../../services/Api"
@@ -41,19 +42,34 @@ export const FormUsuario = (props) => {
             })
             .then(
                 function (response) {
+                    Swal.fire({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: 'Oba, seu registro está completo!',
+                    showConfirmButton: false,
+                    timer: 2500
+                    })
                     setSucess(response.data)
                     setPageAtualCompra(0)
                 }
                 )
             .catch((err) => {
-              alert("ops! ocorreu um erro" + err);
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Tivemos um erro inesperado aqui, tente novamente! erro: ECU-01',
+                  })
             });
 
             if(sucess) {
                 setPageAtualCompra(0)
             }
         } else {
-            alert('preencha os campos corretamente')
+            Swal.fire({
+                icon: 'warning',
+                title: 'Oops...',
+                text: 'Olha só, encontramos algum dado faltando ou incompleto. Precisamos que seja tudo preenchido, ok? Tente novamente!',
+              })
         }
     }
 

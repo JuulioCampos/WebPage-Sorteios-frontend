@@ -22,6 +22,7 @@ export const App = () => {
   }
   if (listaSorteios) {
     return (
+      <>
       <HomeDiv>
         <Header data={listaSorteios} />
         <Container>
@@ -39,6 +40,7 @@ export const App = () => {
         </Container>
         <Footer></Footer>
       </HomeDiv>
+      </>
     )
   }
   return (
