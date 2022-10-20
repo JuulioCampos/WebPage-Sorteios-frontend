@@ -24,4 +24,5 @@ export const HomeDiv = styled.div`
         background-color: ${BACKGROUNDHOME};
 
     }
+    
 `
