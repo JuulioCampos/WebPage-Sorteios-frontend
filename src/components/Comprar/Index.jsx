@@ -1,5 +1,6 @@
 import React, { useState } from "react"
 import { Col, Container, Row } from "react-bootstrap"
+import Swal from "sweetalert2"
 import { DadosUsuarioContext } from "../../providers/DadosUsuario"
 import { PageAtualCompraContext } from "../../providers/PageAtualCompra"
 import { Api } from "../../services/Api"
@@ -16,9 +17,22 @@ export const ComprarPage = (props) => {
                 data: dadosUsuario
             })
             .then((response) => {
+                 
+            Swal.fire({
+                position: 'top-end',
+                icon: 'success',
+                title: 'Obaa! \n Sua compra foi concluída, só pagar o QR e aguardar seu prêmio!',
+                showConfirmButton: false,
+                timer: 3500
+            })
                 setPix(response.data)
             })
             .catch((err) => {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Não conseguimos realizar sua compra no momento. Tente novamente: EPC-01',
+                  })
                 setPix({ erro: 404, messagem: 'not exists' })
             });
     }

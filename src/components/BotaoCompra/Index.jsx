@@ -2,17 +2,26 @@ import { SCol, SButton } from "./Style"
 import InputGroup from 'react-bootstrap/InputGroup';
 import React from "react";
 import { countCotasContext } from "../../providers/CountCotas";
+import Swal from "sweetalert2";
 
 export const BotaoCompra = (props) => {
     const {contaCotas, setContaCotas} = React.useContext(countCotasContext)
 
     if (contaCotas > 500) {
         setContaCotas(500)
-        alert('Limite máximo de reserva é 500!')
+        Swal.fire({
+            icon: 'warning',
+            title: 'Oops...',
+            text: 'Limite máximo de reserva é 500!',
+          })
     }
     if (contaCotas < 0) {
         setContaCotas(0)
-        alert('Quantidade de cotas já está zerado!')
+        Swal.fire({
+            icon: 'warning',
+            title: 'Oops...',
+            text: 'Quantidade de números já está zerado!',
+          })
     }
     const numClickHandler = (Event, valor, tipo) => { 
         // eslint-disable-next-line
@@ -26,12 +35,20 @@ export const BotaoCompra = (props) => {
         // eslint-disable-next-line
         if (contaCotas <= 0 && tipo == '-') {
             setContaCotas(0)
-            alert('você já zerou a quantidade de cotas')
+            Swal.fire({
+                icon: 'warning',
+                title: 'Oops...',
+                text: 'Seu carrinho de números está zerado!',
+              })
         }
         // eslint-disable-next-line
         if (contaCotas > 499 && tipo == '+') {
             setContaCotas(500)
-            alert('Você só poderá comprar até 500 cotas por vez')
+            Swal.fire({
+                icon: 'warning',
+                title: 'Oops...',
+                text: 'Você só poderá comprar até 500 números por vez!',
+              })
         }
     }
 

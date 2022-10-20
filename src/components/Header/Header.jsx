@@ -4,12 +4,13 @@ import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import { PRIMARY } from '../../colors/Colors.js';
-import { Input, Navbar } from './Styles';
+import { Input, Navbar, SearchCotas } from './Styles';
 import { ModalWindow } from '../Modal/Modal.jsx';
 import { Button } from '../Button/Index.jsx';
 import { Link } from 'react-router-dom';
 import { maskTelefone, unmaskTelefone } from '../../services/Validations.js';
 import { BuscaCotas } from '../../services/Requests/BuscaCotas.js';
+import Swal from 'sweetalert2';
 
 export const Header = (props) => {
   const [modalVisible, setModalVisible] = useState(false);
@@ -29,10 +30,20 @@ export const Header = (props) => {
             setIsOpen(true)
           }
           else {
-            alert('tivemos um erro por aqui, tente novamente!')
+            Swal.fire({
+              icon: 'error',
+              title: 'Oops...',
+              text: 'Ocorreu um erro interno, mas olhe, você tentar novamente! erro: ECC-01',
+            })
           }
         }
-      )
+      ).catch(e=>{
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Aparentemente você não comprou números. Se isso estiver errado, entre em contato com o suporte!',
+        })
+      })
   }
   const btnClose = () => {
     setModalVisible(false)
@@ -81,9 +92,9 @@ export const Header = (props) => {
                 onChange={(e) => setTelefone(e.target.value)}
                 value={maskTelefone(telefone)}
               />
-              <div className="search-cotas">
+              <SearchCotas className="search-cotas">
                 <Button label="Buscar Números" onClick={getCotas}>Buscar Números</Button>
-              </div>
+              </SearchCotas>
             </Form>
           </Navbar.Collapse>
         </Container>
