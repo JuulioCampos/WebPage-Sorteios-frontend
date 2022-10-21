@@ -24,5 +24,7 @@ export const HomeDiv = styled.div`
         background-color: ${BACKGROUNDHOME};
 
     }
-    
+    & .progress {
+        border: 1px solid ${THIRD}33;
+    }
 `

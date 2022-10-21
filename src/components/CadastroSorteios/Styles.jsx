@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import {  BLACK, PRIMARY, RED,SECOND,THIRD,WHITE } from "../../../colors/Colors";
-import { Button } from "../../../components/Button/Index";
+import {  BLACK, PRIMARY, RED,SECOND,THIRD,WHITE } from "../../colors/Colors";
+import { Button } from "../Button/Index";
 
 export const DivForm = styled.div` 
     background: ${PRIMARY};
@@ -41,4 +41,21 @@ export const InputImageLabel = styled.label`
     &:hover {
         background-color: ${PRIMARY} !important;
     }
+`
+export const MenuBar = styled.div` 
+    display: flex;
+    justify-content: center;
+    background-color: ${PRIMARY};
+    border-radius: 10px;
+    margin: 10px 0;
+    padding: 10px;
+    box-shadow: 0px 3px 23px 5px rgb(0 0 0 / 22%);
+    & button {
+        width: max-content;
+    }
+    
+`
+
+export const CardCollapsed = styled.div` 
+    border-radius: 10px;
 `

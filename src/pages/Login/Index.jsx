@@ -6,6 +6,7 @@ import { Button } from "../../components/Button/Index";
 import { TokenContext } from "../../providers/Token";
 import { CheckBox, DivForm, DivLogin } from "./Style";
 import { postLogin } from "../../services/Requests/Login";
+import Swal from "sweetalert2";
 
 export const Login = (props) => {
   const { setToken } = React.useContext(TokenContext);
@@ -37,6 +38,7 @@ export const Login = (props) => {
       });
 
       if (r.data.token) {
+
         window.location.href = "/administracao";
       }
     });
