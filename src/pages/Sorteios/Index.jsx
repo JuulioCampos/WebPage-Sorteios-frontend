@@ -10,10 +10,10 @@ export const TodosSorteios = (props) => {
     const data = props.data
     return (
         <>
-            <SH1>
-            <Icon width={"5"} color={THIRD} iconName={"fa-solid fa-star"} />
+            <SH1 style={{marginTop: '35px', marginBottom: '35px'}}>
+            <Icon color={THIRD} iconName={"fa-solid fa-star"} />
                 Confira os sorteios que estão rolando
-            <Icon width={"5"} color={THIRD} iconName={"fa-solid fa-star"} />
+            <Icon color={THIRD} iconName={"fa-solid fa-star"} />
             </SH1>
             <Row>
                 {

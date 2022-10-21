@@ -10,8 +10,8 @@ import { TodosSorteios } from "./pages/Sorteios/Index.jsx";
 import { Contato } from "./pages/Contato/Index.jsx";
 import { ListaCotasContext } from "./providers/ListaSorteios";
 import { Login } from "./pages/Login/Index";
-import { Administracao } from "./pages/Authentic/Administracao/Index";
 import { HomeDiv } from "./colors/Default";
+import { Administracao } from "./pages/Dashboard/Painel/Index";
 
 
 export const App = () => {
@@ -25,7 +25,7 @@ export const App = () => {
       <>
       <HomeDiv>
         <Header data={listaSorteios} />
-        <Container>
+        <Container style={{position: 'relative', top: '50px', paddingBottom: '70px'}}>
           <Routes>
             <Route path="/" element={<Home data={listaSorteios} />} />
             <Route path="/sorteio/:sorteio" element={<Sorteio data={listaSorteios} />} />

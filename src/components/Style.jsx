@@ -19,6 +19,7 @@ export const SFooter = styled.footer`
     position: relative;
     bottom: 0 !important;
     width: 100%;
+    
   .top-footer{
     padding: 10px;
     margin-top: 20px;

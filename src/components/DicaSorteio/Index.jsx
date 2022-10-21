@@ -11,9 +11,9 @@ export const DicaSorteios = (props) => {
         <ColDicas xs={12} md={6} lg={3}>
           <div>
             <DivTitleDicas>
-            <Icon width={"5"} color={THIRD} iconName={"fa-solid fa-star"} />
+            <Icon color={THIRD} iconName={"fa-solid fa-star"} />
             <h4>Escolha o sorteio</h4>
-            <Icon width={"5"} color={THIRD} iconName={"fa-solid fa-star"} />
+            <Icon color={THIRD} iconName={"fa-solid fa-star"} />
             </DivTitleDicas>
             <p>
               Escolha a qual prêmio gostaria de participar. Verifique os dados
@@ -24,9 +24,9 @@ export const DicaSorteios = (props) => {
         <ColDicas xs={12} md={6} lg={3}>
           <div>
             <DivTitleDicas>
-            <Icon width={"5"} color={THIRD} iconName={"fa-solid fa-star"} />
+            <Icon color={THIRD} iconName={"fa-solid fa-star"} />
             <h4>Selecione as cotas</h4>
-            <Icon width={"5"} color={THIRD} iconName={"fa-solid fa-star"} />
+            <Icon color={THIRD} iconName={"fa-solid fa-star"} />
             </DivTitleDicas>
             <p>
               Você poderá escolher quantas cotas desejar! Quanto mais números
@@ -37,9 +37,9 @@ export const DicaSorteios = (props) => {
         <ColDicas xs={12} md={6} lg={3}>
           <div>
             <DivTitleDicas>
-              <Icon width={"5"} color={THIRD} iconName={"fa-solid fa-star"} />
+              <Icon color={THIRD} iconName={"fa-solid fa-star"} />
               <h4>Realize o pagamento</h4>
-              <Icon width={"5"} color={THIRD} iconName={"fa-solid fa-star"} />
+              <Icon color={THIRD} iconName={"fa-solid fa-star"} />
             </DivTitleDicas>
             <p>
               Faça o pagamento via PIX. Os pagamentos não demoram muito e você
@@ -50,9 +50,9 @@ export const DicaSorteios = (props) => {
         <ColDicas xs={12} md={6} lg={3}>
           <div>
             <DivTitleDicas>
-            <Icon width={"5"} color={THIRD} iconName={"fa-solid fa-star"} />
+            <Icon color={THIRD} iconName={"fa-solid fa-star"} />
             <h4>Aguarde o sorteio </h4>
-            <Icon width={"5"} color={THIRD} iconName={"fa-solid fa-star"} />
+            <Icon color={THIRD} iconName={"fa-solid fa-star"} />
             </DivTitleDicas>
             <p>
               O sorteio será realizado ao fim das vendas de todas cotas. O

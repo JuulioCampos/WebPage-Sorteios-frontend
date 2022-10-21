@@ -11,6 +11,7 @@ import { Link } from "react-router-dom";
 import { maskTelefone, unmaskTelefone } from "../../services/Validations.js";
 import { BuscaCotas } from "../../services/Requests/BuscaCotas.js";
 import Swal from "sweetalert2";
+import { BoxShadow } from "../../colors/Styles.js";
 
 export const Header = (props) => {
   const [modalVisible, setModalVisible] = useState(false);
@@ -59,7 +60,7 @@ export const Header = (props) => {
   };
   return (
     <>
-      <Navbar style={{ background: PRIMARY }} variant="dark" expand="lg">
+      <Navbar style={{ background: PRIMARY, position: 'fixed', zIndex: 99, width: '100%', top: '0', boxShadow: BoxShadow + 20 }} variant="dark" expand="lg">
         <Container>
           <Navbar.Brand href="/">LOGODAEMPRESA</Navbar.Brand>
           <Navbar.Toggle aria-controls="navbarScroll" />

@@ -1,5 +1,5 @@
 export const Icon = (props) => {
     return (
-        <i width={props.width} style={{width: props.width+" !important", color: props.color}} className={props.iconName}></i> 
+        <i style={{ color: props.color, fontSize: props.size ?? 'inherit'}} className={props.iconName +' '+ props.className ?? ''}></i> 
     )
 }

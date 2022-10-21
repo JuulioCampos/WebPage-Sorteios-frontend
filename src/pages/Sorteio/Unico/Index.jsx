@@ -76,10 +76,10 @@ export const SorteioUnico = (props) => {
 
     return (
         <>
-            <SorteioSection>
+            <SorteioSection style={{marginTop: '15px'}}>
                 <SDiv className="d-flex align-center row justify-content-between">
                     <Col sm={12} md={12} lg={6} className="">
-                        <h1 className=""><Icon width={"5"} color={THIRD} iconName={"fa-solid fa-star"} /> {sorteio_data.titulo}</h1>
+                        <h1 className=""><Icon color={THIRD} iconName={"fa-solid fa-star"} /> {sorteio_data.titulo}</h1>
                         <small className="text-center text-lg-left">{sorteio_data.principal ? 'Sorteio principal ' : ''}</small>
                     </Col>
                 </SDiv>
@@ -93,9 +93,9 @@ export const SorteioUnico = (props) => {
                                 <PremioCota>
                                     <p>
                                         <div>
-                                            <Icon width={"5"} color={THIRD} iconName={"fa-solid fa-star"} />
+                                            <Icon color={THIRD} iconName={"fa-solid fa-star"} />
                                             &nbsp; PREÇO DA COTA: <b>R${sorteio_data.valor_cota.replace('.', ',') ?? '0,60'}</b>&nbsp;
-                                            <Icon width={"5"} color={THIRD} iconName={"fa-solid fa-star"} />
+                                            <Icon color={THIRD} iconName={"fa-solid fa-star"} />
                                         </div>
                                     </p>
                                 </PremioCota>
