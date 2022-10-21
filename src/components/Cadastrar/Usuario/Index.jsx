@@ -84,7 +84,7 @@ export const FormUsuario = (props) => {
             <Col sm={12} xs={12}>
                 <Form.Group className="mb-3" controlId="formBasicEmail">
                     <Form.Label>E-mail *</Form.Label>
-                    <input onChange={(e) => { setEmail(e.target.value) }} class="form-control"placeholder="Digite seu email"   type="email" required />
+                    <input onChange={(e) => { setEmail(e.target.value) }} className="form-control"placeholder="Digite seu email"   type="email" required />
                 </Form.Group>
             </Col>
             <Col sm={12} xs={12}  className="">
@@ -96,13 +96,13 @@ export const FormUsuario = (props) => {
             <Col sm={7} xs={7}  className="">
                 <Form.Group className="mb-3">
                     <Form.Label>CPF</Form.Label>
-                    <input onChange={(e) => { setCpf(maskCpf(e.target.value)) }} value={cpf} maxLength="14" class="form-control" type="text" required/>
+                    <input onChange={(e) => { setCpf(maskCpf(e.target.value)) }} value={cpf} maxLength="14" className="form-control" type="text" required/>
                 </Form.Group>
             </Col>
             <Col sm={5} xs={5} className="" >
                 <Form.Group className="mb-3">
                     <Form.Label>Nasc.</Form.Label>
-                    <input onChange={(e) => { setNascimento(e.target.value) }} class="form-control" maxLength="11"  type="date" />
+                    <input onChange={(e) => { setNascimento(e.target.value) }} className="form-control" maxLength="11"  type="date" />
                 </Form.Group>
             </Col>
             <Col sm={7} xs={7}>

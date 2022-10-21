@@ -113,18 +113,26 @@ export const Administracao = () => {
           </Button>
         </MenuBar>
         
-        <div className={"collapse " +( criaSorteio ? 'show' : '')} id="criaSorteio">
-            <CadastroSorteio></CadastroSorteio>
+        <div className={"collapse "+ (criaSorteio || gestaoSorteio || gestaoUser || configs ? 'd-block' : '')} id="criaSorteio">
+           {
+              criaSorteio && <CadastroSorteio></CadastroSorteio>
+           } 
+           
+           {
+              gestaoSorteio && <div>teste gestaoSorteio</div>
+           } 
+
+           {
+              gestaoUser && <div>teste gestaoUser </div>
+           } 
+
+           {
+              configs && <div>teste configs</div>
+           } 
+
+           
         </div>
-        <div className={"collapse "+( gestaoUser  ? 'show' : '')} id="gestaoUser">
-          <div>USUARIOS REGISTRADOS</div>
-        </div>
-        <div className={"collapse "+ (gestaoSorteio  ? 'show' : '')} id="gestaoSorteio">
-          <div>SORTEIOS CRIADOS</div>
-        </div>
-        <div className={"collapse "+ (configs  ? 'show' : '')} id="configs">
-          <div>CONFIGURAÇÕES GERAIS</div>
-        </div>
+
       </>
     );
   }
