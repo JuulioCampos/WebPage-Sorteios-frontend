@@ -1,18 +1,21 @@
 import { InputGroup } from "react-bootstrap";
 import styled from "styled-components";
 import { WHITE } from "../../colors/Colors";
+import { BoxShadow } from "../../colors/Styles";
 
 export const DivForm = styled.div` 
 
 `
 export const DivLogin = styled.div`
+    box-shadow: ${BoxShadow};
     width: max-content;
     background: ${WHITE};
     padding: 2.5rem;
     border-radius: 10px;
     margin: 0 auto;
-    margin-top: 5rem;
-    margin-bottom: 49.7vh;
+    position: relative;
+    top: 3.5rem;
+    margin-bottom: 42.7vh;
 `
 
 export const CheckBox = styled(InputGroup)`

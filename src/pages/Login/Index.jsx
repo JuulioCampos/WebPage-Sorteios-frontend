@@ -7,6 +7,8 @@ import { TokenContext } from "../../providers/Token";
 import { CheckBox, DivForm, DivLogin } from "./Style";
 import { postLogin } from "../../services/Requests/Login";
 import Swal from "sweetalert2";
+import { Icon } from "../../components/Icons/Index";
+import { THIRD } from "../../colors/Colors";
 
 export const Login = (props) => {
   const { setToken } = React.useContext(TokenContext);
@@ -38,16 +40,32 @@ export const Login = (props) => {
       });
 
       if (r.data.token) {
+        Swal.fire({
+          icon: 'success',
+          title: 'Oba...',
+          text: 'Logado com sucesso! você será redirecionado para administração!',
+        })
 
-        window.location.href = "/administracao";
+        return window.location.href = "/administracao";
       }
-    });
+    }).catch(
+      r => {
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Você digitou errado ou não tem acesso administrativo!',
+        })
+      }
+    );
   };
 
   return (
     <DivLogin className="d-flex justify-content-center">
       <Form className="d-flex justify-content-center">
+
         <DivForm>
+          <Icon className="d-flex justify-content-center" size={'50px'} color={THIRD} iconName={"fa-solid fa-lock"}></Icon>
+          <h1>Administração</h1>
           <Form.Group as={Row} className="mb-3" controlId="formPlaintextEmail">
             <Form.Label>Email</Form.Label>
             <Col sm="12">

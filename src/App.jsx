@@ -25,7 +25,7 @@ export const App = () => {
       <>
       <HomeDiv>
         <Header data={listaSorteios} />
-        <Container>
+        <Container style={{position: 'relative', top: '50px', paddingBottom: '70px'}}>
           <Routes>
             <Route path="/" element={<Home data={listaSorteios} />} />
             <Route path="/sorteio/:sorteio" element={<Sorteio data={listaSorteios} />} />

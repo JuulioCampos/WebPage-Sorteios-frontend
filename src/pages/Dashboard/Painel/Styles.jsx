@@ -1,5 +1,6 @@
 import styled from "styled-components";
-import {  PRIMARY,SECOND,THIRD,WHITE } from "../../../colors/Colors";
+import {  PRIMARY,RED,SECOND,THIRD,WHITE } from "../../../colors/Colors";
+import { Button } from "../../../components/Button/Index";
 
 export const DivForm = styled.div` 
     background: ${PRIMARY};
@@ -30,5 +31,18 @@ export const MenuBar = styled.div`
     & button {
         width: max-content;
     }
+    & button.ativo-true {
+        background-color: ${SECOND} !important;
+        border: 1px solid ${WHITE} !important;
+    }
     
+`
+export const ButtonSair = styled(Button)`
+    background-color: ${RED} !important;
+
+`
+
+export const Collapses = styled.div`
+    
+
 `

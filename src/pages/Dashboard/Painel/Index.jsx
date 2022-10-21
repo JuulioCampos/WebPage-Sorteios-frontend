@@ -49,15 +49,15 @@ export const Administracao = () => {
         <MenuBar className="">
           <Button
             onClick={() => {
-                setCriaSorteio('show') 
+                setCriaSorteio(!criaSorteio) 
                 setGestaoUser('')
                 setGestaoSorteio('')
                 setConfigs('')
             }}
-            className={"m-1 mt-2 mb-1"}
+            className={"m-1 mt-2 mb-1 ativo-"+criaSorteio+' ' + (criaSorteio ? '' : 'collapsed')}
             data-toggle="collapse"
             data-target="#criaSorteio"
-            aria-expanded="false"
+            aria-expanded={criaSorteio}
             aria-controls="criaSorteio"
           >
             <Icon color={WHITE} iconName={"fa-solid fa-circle-plus"}></Icon>&nbsp;
@@ -66,14 +66,14 @@ export const Administracao = () => {
           <Button
             onClick={() => {
                 setCriaSorteio('') 
-                setGestaoUser('show')
+                setGestaoUser(!gestaoUser)
                 setGestaoSorteio('')
                 setConfigs('')
             }}
-            className={"m-1 mt-2 mb-1"}
+            className={"m-1 mt-2 mb-1 ativ-"+gestaoUser+' '+(gestaoUser ? '' : 'collapsed') }
             data-toggle="collapse"
             data-target="#gestaoUser"
-            aria-expanded="false"
+            aria-expanded={gestaoUser}
             aria-controls="gestaoUser"
           >
             <Icon color={WHITE} iconName={"fa-solid fa-user"}></Icon>&nbsp;
@@ -83,13 +83,13 @@ export const Administracao = () => {
             onClick={() => {
                 setCriaSorteio('') 
                 setGestaoUser('')
-                setGestaoSorteio('show')
+                setGestaoSorteio(!gestaoSorteio)
                 setConfigs('')
             }}
-            className={"m-1 mt-2 mb-1"}
+            className={"m-1 mt-2 mb-1 ativo-"+gestaoSorteio+' '+(gestaoSorteio ? '' : 'collapsed') }
             data-toggle="collapse"
             data-target="#gestaoSorteio"
-            aria-expanded="false"
+            aria-expanded={gestaoSorteio}
             aria-controls="gestaoSorteio"
           >
             <Icon color={WHITE} iconName={"fa-solid fa-bars-progress"}></Icon>&nbsp;
@@ -100,28 +100,29 @@ export const Administracao = () => {
                 setCriaSorteio('') 
                 setGestaoUser('')
                 setGestaoSorteio('')
-                setConfigs('show')
+                setConfigs(!configs)
             }}
-            className={"m-1 mt-2 mb-1"}
+            className={"m-1 mt-2 mb-1 ativo-"+configs+' '+ (configs ? '' : 'collapsed') }
             data-toggle="collapse"
             data-target="#configs"
-            aria-expanded="false"
+            aria-expanded={configs}
             aria-controls="configs"
           >
             <Icon color={WHITE} iconName={"fa-solid fa-gear"}></Icon>&nbsp;
             Configs
           </Button>
         </MenuBar>
-        <div className={"collapse" + criaSorteio} id="criaSorteio">
+        
+        <div className={"collapse " +( criaSorteio ? 'show' : '')} id="criaSorteio">
             <CadastroSorteio></CadastroSorteio>
         </div>
-        <div className={"collapse"+ gestaoUser} id="gestaoUser">
+        <div className={"collapse "+( gestaoUser  ? 'show' : '')} id="gestaoUser">
           <div>USUARIOS REGISTRADOS</div>
         </div>
-        <div className={"collapse"+ gestaoSorteio} id="gestaoSorteio">
+        <div className={"collapse "+ (gestaoSorteio  ? 'show' : '')} id="gestaoSorteio">
           <div>SORTEIOS CRIADOS</div>
         </div>
-        <div className={"collapse"+ configs} id="configs">
+        <div className={"collapse "+ (configs  ? 'show' : '')} id="configs">
           <div>CONFIGURAÇÕES GERAIS</div>
         </div>
       </>
