@@ -2,7 +2,7 @@ import { Col } from "react-bootstrap";
 import styled from "styled-components";
 import { Row } from "react-bootstrap"
 import { Button } from '../Button/Index.jsx';
-import { SECOND, WHITE } from "../../colors/Colors.js";
+import { SECOND, THIRD, WHITE } from "../../colors/Colors.js";
 
 export const SCol = styled(Col)`
     & .bt-adding button {
@@ -14,7 +14,7 @@ export const SCol = styled(Col)`
         text-align: center;
         display: flex;
         justify-content: center;
-        color: ${WHITE};
+        color: ${THIRD};
         
     }
     .input-group {justify-content: center;}
@@ -32,6 +32,7 @@ export const SCol = styled(Col)`
         font-weight: 600 !important;
         color: ${SECOND}
     }
+    
     span#cotas-span {
         padding-left: 0;
     }
@@ -57,6 +58,9 @@ export const SCol = styled(Col)`
         }
         & input {
             border-radius: 0
+        }
+        & input#cotas {
+            text-align: center !important;
         }
     &>div {
         display: flex;

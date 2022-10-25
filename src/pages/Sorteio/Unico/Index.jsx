@@ -163,7 +163,7 @@ export const SorteioUnico = (props) => {
             >
                 {
                     // eslint-disable-next-line
-                    pageAtualCompra == 0 && <BuscaUsuario onClick={getUsuario} onChange={(e) => { setTelefone(e.target.value) }} value={maskTelefone(telefone)}> Buscar Cadasro </BuscaUsuario>
+                    pageAtualCompra == 0 && <BuscaUsuario onClick={getUsuario} onChange={(e) => { setTelefone(e.target.value) }} value={maskTelefone(telefone)}> Buscar Cadastro </BuscaUsuario>
                 }
                 {
                     // eslint-disable-next-line
