@@ -62,7 +62,7 @@ export const Header = (props) => {
     <>
       <Navbar style={{ background: PRIMARY, position: 'fixed', zIndex: 99, width: '100%', top: '0', boxShadow: BoxShadow + 20 }} variant="dark" expand="lg">
         <Container>
-          <Navbar.Brand href="/">LOGODAEMPRESA</Navbar.Brand>
+          <Navbar.Brand  className="pt-0 pb-0 pr-3 mr-3" href="/"><img className={'mr-2 pr-5'} width={60} src={'/logo.png'} alt="FS" srcset="/logo.png" /></Navbar.Brand>
           <Navbar.Toggle aria-controls="navbarScroll" />
           <Navbar.Collapse id="navbarScroll">
             <Nav className="me-auto my-2 my-lg-0" navbarScroll>
