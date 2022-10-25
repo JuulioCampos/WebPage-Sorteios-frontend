@@ -72,7 +72,7 @@ export const Header = (props) => {
 
               <Link to={"/sorteios"} className="btn-sorteio ">
                 Sorteios
-                <NavDropdown d="navbarScrollingDropdown">
+                <NavDropdown style={{padding: "0 5px",position: 'relative', top: '1px'}} d="navbarScrollingDropdown">
                   {data &&
                     data.map((x, y) => (
                       <Link
