@@ -18,7 +18,7 @@ export const App = () => {
   const { listaSorteios } = React.useContext(ListaCotasContext)
   const { waitLoad} = React.useContext(ListaCotasContext)
   if (waitLoad) {
-    return (<div className="Loading-page"><img src="https://acegif.com/wp-content/uploads/loading-4.gif" alt="carregando..." /></div>)
+    return (<div className="Loading-page"><img src="/logo.png" alt="carregando..." /></div>)
   }
   if (listaSorteios) {
     return (
