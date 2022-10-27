@@ -76,7 +76,7 @@ export const SorteioUnico = (props) => {
 
     return (
         <>
-            <SorteioSection style={{marginTop: '15px'}}>
+            <SorteioSection style={{marginTop: '40px'}}>
                 <SDiv className="d-flex align-center row justify-content-between">
                     <Col sm={12} md={12} lg={6} className="">
                         <h1 className=""><Icon color={THIRD} iconName={"fa-solid fa-star"} /> {sorteio_data.titulo}</h1>
