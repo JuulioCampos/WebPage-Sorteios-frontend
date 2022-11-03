@@ -25,7 +25,7 @@ export const MenuBar = styled.div`
     justify-content: center;
     background-color: ${PRIMARY};
     border-radius: 10px;
-    margin: 10px 0;
+    margin: 35px 0 10px 0;
     padding: 10px;
     box-shadow: 0px 3px 23px 5px rgb(0 0 0 / 22%);
     & button {

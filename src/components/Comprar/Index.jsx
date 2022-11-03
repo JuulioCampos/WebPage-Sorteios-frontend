@@ -5,7 +5,7 @@ import { DadosUsuarioContext } from "../../providers/DadosUsuario"
 import { PageAtualCompraContext } from "../../providers/PageAtualCompra"
 import { Api } from "../../services/Api"
 import { Button } from "../Button/Index"
-import { CancelButton, QrCode } from "./Style"
+import { CancelButton, Pre, QrCode } from "./Style"
 
 export const ComprarPage = (props) => {
     const { dadosUsuario } = React.useContext(DadosUsuarioContext)
@@ -56,6 +56,10 @@ export const ComprarPage = (props) => {
                     <QrCode>
                         <h4 className="text-center pt-3">QRCODE PIX</h4>
                         <img style={{ width: '350px' }} src={ pix['qrcode']} alt="" srcset="" />
+                        <p>Copie aqui</p>
+                        <Pre>
+                            {pix['codigo_pix']}
+                        </Pre>
                     </QrCode>
                 }
 

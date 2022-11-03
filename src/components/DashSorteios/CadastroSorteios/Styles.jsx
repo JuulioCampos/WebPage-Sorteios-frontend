@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import {  BLACK, PRIMARY, RED,SECOND,THIRD,WHITE } from "../../colors/Colors";
-import { Button } from "../Button/Index";
+import {  BLACK, PRIMARY, RED,SECOND,THIRD,WHITE } from "../../../colors/Colors";
+import { Button } from "../../Button/Index";
 
 export const DivForm = styled.div` 
     background: ${PRIMARY};

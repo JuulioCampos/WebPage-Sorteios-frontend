@@ -1,11 +1,10 @@
 import { useState } from "react";
 import { Col, FloatingLabel, Form, Row } from "react-bootstrap";
-
-import { Button } from "../Button/Index";
-import { createSorteio } from "../../services/Requests/CriaSorteio";
-import { CancelButton, CardCollapsed, DivButton, DivForm, InputImageLabel } from "./Styles";
-import { PRIMARY } from "../../colors/Colors";
-import { Icon } from "../Icons/Index";
+import { createSorteio } from "../../../services/Requests/CriaSorteio";
+import { CancelButton, CardCollapsed, DivButton, DivForm, InputImageLabel} from "./Styles";
+import { Icon } from "../../Icons/Index";
+import { PRIMARY } from "../../../colors/Colors";
+import { Button } from "../../Button/Index";
 
 export const CadastroSorteio = (props) => {
   const [dataSorteio, setDataSorteio] = useState({});
@@ -45,7 +44,7 @@ export const CadastroSorteio = (props) => {
   };
   return (
     <>
-      <CardCollapsed class="card card-body">
+      <CardCollapsed className="card card-body">
         <Row className="d-flex justify-content-center">
           <h1 className="text-left text-md-center mt-2 pt-1">
             Cadastro de sorteios
