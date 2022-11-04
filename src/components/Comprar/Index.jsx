@@ -12,6 +12,28 @@ export const ComprarPage = (props) => {
     const { setPageAtualCompra } = React.useContext(PageAtualCompraContext)
     const [pix, setPix] = useState()
     function Comprar() {
+        let timerInterval
+        Swal.fire({
+          title: "Aguarde",
+          html: "Estamos finalizando sua compra!",
+          timer: 100000,
+          timerProgressBar: true,
+          didOpen: () => {
+            Swal.showLoading();
+            const b = Swal.getHtmlContainer().querySelector("b");
+            timerInterval = setInterval(() => {
+              b.textContent = Swal.getTimerLeft();
+            }, 100);
+          },
+          willClose: () => {
+            clearInterval(timerInterval);
+          },
+        }).then((result) => {
+          /* Read more about handling dismissals below */
+          if (result.dismiss === Swal.DismissReason.timer) {
+          }
+        });
+        
         Api
             .post("/api/cria-pix", {
                 data: dadosUsuario

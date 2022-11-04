@@ -22,10 +22,47 @@ export const Header = (props) => {
 
   const getCotas = () => {
     if (telefone.length > 10) {
+      let timerInterval
+      Swal.fire({
+        title: "Aguarde",
+        html: "Estamos buscando suas compras!",
+        timer: 100000,
+        timerProgressBar: true,
+        didOpen: () => {
+          Swal.showLoading();
+          const b = Swal.getHtmlContainer().querySelector("b");
+          timerInterval = setInterval(() => {
+            b.textContent = Swal.getTimerLeft();
+          }, 100);
+        },
+        willClose: () => {
+          clearInterval(timerInterval);
+        },
+      }).then((result) => {
+        /* Read more about handling dismissals below */
+        if (result.dismiss === Swal.DismissReason.timer) {
+        }
+      });
       BuscaCotas(unmaskTelefone(telefone))
         .then((response) => {
           // eslint-disable-next-line
           if (response.status == 200) {
+            const Toast = Swal.mixin({
+              toast: true,
+              position: 'top-end',
+              showConfirmButton: false,
+              timer: 3000,
+              timerProgressBar: true,
+              didOpen: (toast) => {
+                toast.addEventListener('mouseenter', Swal.stopTimer)
+                toast.addEventListener('mouseleave', Swal.resumeTimer)
+              }
+            })
+            
+            Toast.fire({
+              icon: 'success',
+              title: 'Compras encontradas!'
+            })
             setListaCotas(response.data);
             setModalVisible(true);
             setIsOpen(true);
@@ -33,7 +70,7 @@ export const Header = (props) => {
             Swal.fire({
               icon: "error",
               title: "Oops...",
-              text: "Ocorreu um erro interno, mas olhe, você tentar novamente! erro: ECC-01",
+              text: "Olha, não encontramos nenhuma conta :(",
             });
           }
         })
