@@ -23,7 +23,7 @@ export const App = () => {
   if (listaSorteios) {
     return (
       <>
-      <HomeDiv>
+      <HomeDiv style={{width: '100vw'}}>
         <Header data={listaSorteios} />
         <Container style={{position: 'relative', top: '50px', paddingBottom: '70px'}}>
           <Routes>
