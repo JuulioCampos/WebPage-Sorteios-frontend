@@ -1,102 +1,145 @@
-import React, { useState } from "react"
-import { Col, Container, Row } from "react-bootstrap"
-import Swal from "sweetalert2"
-import { DadosUsuarioContext } from "../../providers/DadosUsuario"
-import { PageAtualCompraContext } from "../../providers/PageAtualCompra"
-import { Api } from "../../services/Api"
-import { Button } from "../Button/Index"
-import { CancelButton, Pre, QrCode } from "./Style"
+import React, { useState } from "react";
+import { Col, Container, Row } from "react-bootstrap";
+import Swal from "sweetalert2";
+import { DadosUsuarioContext } from "../../providers/DadosUsuario";
+import { PageAtualCompraContext } from "../../providers/PageAtualCompra";
+import { Api } from "../../services/Api";
+import { Button } from "../Button/Index";
+import { CancelButton, Pre, QrCode } from "./Style";
 
 export const ComprarPage = (props) => {
-    const { dadosUsuario } = React.useContext(DadosUsuarioContext)
-    const { setPageAtualCompra } = React.useContext(PageAtualCompraContext)
-    const [pix, setPix] = useState()
-    function Comprar() {
-        let timerInterval
-        Swal.fire({
-          title: "Aguarde",
-          html: "Estamos finalizando sua compra!",
-          timer: 100000,
+  const { dadosUsuario } = React.useContext(DadosUsuarioContext);
+  const { setPageAtualCompra } = React.useContext(PageAtualCompraContext);
+  const [pix, setPix] = useState();
+  function Comprar() {
+    let timerInterval;
+    Swal.fire({
+      title: "Aguarde",
+      html: "Estamos finalizando sua compra!",
+      timer: 100000,
+      timerProgressBar: true,
+      didOpen: () => {
+        Swal.showLoading();
+        const b = Swal.getHtmlContainer().querySelector("b");
+        timerInterval = setInterval(() => {
+          b.textContent = Swal.getTimerLeft();
+        }, 100);
+      },
+      willClose: () => {
+        clearInterval(timerInterval);
+      },
+    }).then((result) => {
+      /* Read more about handling dismissals below */
+      if (result.dismiss === Swal.DismissReason.timer) {
+      }
+    });
+
+    Api.post("/api/cria-pix", {
+      data: dadosUsuario,
+    })
+      .then((response) => {
+        const Toast = Swal.mixin({
+          toast: true,
+          position: "top-end",
+          showConfirmButton: false,
+          timer: 3000,
           timerProgressBar: true,
-          didOpen: () => {
-            Swal.showLoading();
-            const b = Swal.getHtmlContainer().querySelector("b");
-            timerInterval = setInterval(() => {
-              b.textContent = Swal.getTimerLeft();
-            }, 100);
+          didOpen: (toast) => {
+            toast.addEventListener("mouseenter", Swal.stopTimer);
+            toast.addEventListener("mouseleave", Swal.resumeTimer);
           },
-          willClose: () => {
-            clearInterval(timerInterval);
-          },
-        }).then((result) => {
-          /* Read more about handling dismissals below */
-          if (result.dismiss === Swal.DismissReason.timer) {
-          }
         });
-        
-        Api
-            .post("/api/cria-pix", {
-                data: dadosUsuario
-            })
-            .then((response) => {
-                 
-            Swal.fire({
-                position: 'top-end',
-                icon: 'success',
-                title: 'Obaa! \n Sua compra foi concluída, só pagar o QR e aguardar seu prêmio!',
-                showConfirmButton: false,
-                timer: 3500
-            })
-                setPix(response.data)
-            })
-            .catch((err) => {
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Oops...',
-                    text: 'Não conseguimos realizar sua compra no momento. Tente novamente: EPC-01',
-                  })
-                setPix({ erro: 404, messagem: 'not exists' })
-            });
-    }
-    const valor = 'R$ ' + ((parseFloat(dadosUsuario.quantidade) * parseFloat(dadosUsuario.sorteio.valor_cota.replace(',', '.'))).toFixed(2)).replace('.', ',')
-    return (
-        <div>
-            <Container>
-                <div>
-                    <label htmlFor="">Nome</label>
-                    <input className="form-control" id={'nome-user'} type="text" value={dadosUsuario.user.nome} disabled />
-                    <label htmlFor="cpf-user">CPF</label>
-                    <input className="form-control" id={'cpf-user'} type="text" value={dadosUsuario.user.cpf} disabled />
-                    <label htmlFor="value-to-price">Valor a pagar</label>
-                    <input className="form-control" id={'value-to-price'} type="text" value={valor} disabled />
-                    <label htmlFor="sorteio_name">Sorteio</label>
-                    <input className="form-control" id={'sorteio_name'} type="text" value={dadosUsuario.sorteio.titulo} disabled />
-                </div>
-                {
-                    pix &&
-                    pix.qrcode && 
-                    <QrCode>
-                        <h4 className="text-center pt-3">QRCODE PIX</h4>
-                        <img style={{ width: '350px' }} src={ pix['qrcode']} alt="" srcset="" />
-                        <p>Copie aqui</p>
-                        <Pre>
-                            {pix['codigo_pix']}
-                        </Pre>
-                    </QrCode>
-                }
 
-                <hr />
-                <Row className="div-comprar">
-                    <Col className={"d-flex justify-content-start"}  sm={6} xs={6}>
-                        <CancelButton onClick={() => setPageAtualCompra(0)} >Trocar telefone</CancelButton>
-                    </Col>
-                    <Col className={"d-flex justify-content-end"}  sm={6} xs={6}>
-                        {!pix && <Button  onClick={Comprar} >Pagar Agora!</Button>}
-                        {pix && pix.qrcode && <Button onClick={props.modalClose} >Fechar</Button>}
-                    </Col>
-                </Row>
-            </Container>
-        </div>
-
+        Toast.fire({
+          icon: "success",
+          title:
+            "Obaa! \n Sua compra foi concluída, só pagar o QR e aguardar seu prêmio!",
+        });
+        setPix(response.data);
+      })
+      .catch((err) => {
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: "Não conseguimos realizar sua compra no momento. Tente novamente: EPC-01",
+        });
+        setPix({ erro: 404, messagem: "not exists" });
+      });
+  }
+  const valor =
+    "R$ " +
+    (
+      parseFloat(dadosUsuario.quantidade) *
+      parseFloat(dadosUsuario.sorteio.valor_cota.replace(",", "."))
     )
-}
+      .toFixed(2)
+      .replace(".", ",");
+  return (
+    <div>
+      <Container>
+        <div>
+          <label htmlFor="">Nome</label>
+          <input
+            className="form-control"
+            id={"nome-user"}
+            type="text"
+            value={dadosUsuario.user.nome}
+            disabled
+          />
+          <label htmlFor="cpf-user">CPF</label>
+          <input
+            className="form-control"
+            id={"cpf-user"}
+            type="text"
+            value={dadosUsuario.user.cpf}
+            disabled
+          />
+          <label htmlFor="value-to-price">Valor a pagar</label>
+          <input
+            className="form-control"
+            id={"value-to-price"}
+            type="text"
+            value={valor}
+            disabled
+          />
+          <label htmlFor="sorteio_name">Sorteio</label>
+          <input
+            className="form-control"
+            id={"sorteio_name"}
+            type="text"
+            value={dadosUsuario.sorteio.titulo}
+            disabled
+          />
+        </div>
+        {pix && pix.qrcode && (
+          <QrCode>
+            <h4 className="text-center pt-3">QRCODE PIX</h4>
+            <img
+              style={{ width: "350px" }}
+              src={pix["qrcode"]}
+              alt=""
+              srcset=""
+            />
+            <p>Copie aqui</p>
+            <Pre>{pix["codigo_pix"]}</Pre>
+          </QrCode>
+        )}
+
+        <hr />
+        <Row className="div-comprar">
+          <Col className={"d-flex justify-content-start"} sm={6} xs={6}>
+            <CancelButton onClick={() => setPageAtualCompra(0)}>
+              Trocar telefone
+            </CancelButton>
+          </Col>
+          <Col className={"d-flex justify-content-end"} sm={6} xs={6}>
+            {!pix && <Button onClick={Comprar}>Pagar Agora!</Button>}
+            {pix && pix.qrcode && (
+              <Button onClick={props.modalClose}>Fechar</Button>
+            )}
+          </Col>
+        </Row>
+      </Container>
+    </div>
+  );
+};
